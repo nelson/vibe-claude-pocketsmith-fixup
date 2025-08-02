@@ -30,6 +30,30 @@ python main.py
 uv run python main.py
 ```
 
+### API documentation
+
+The pocketsmith API is documented in this JSON file: https://github.com/pocketsmith/api/blob/master/openapi.json.
+
+### PocketSmith Python Client Usage
+
+The correct import and usage pattern for the pocketsmith-api library:
+
+```python
+from pocketsmith import PocketsmithClient
+
+# Initialize client
+client = PocketsmithClient('your-api-key')
+
+# Get user info (needed for most operations)
+user_info = client.users.get_me()
+user_id = user_info['id']
+
+# List categories for the user
+categories = client.categories.list_categories(user_id)
+```
+
+Note: Most PocketSmith API operations require a user ID, which can be obtained via `client.users.get_me()`.
+
 ### Development Workflow
 Since this project uses `uv` for package management:
 - Use `uv add <package>` to add new dependencies
