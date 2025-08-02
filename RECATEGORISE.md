@@ -53,8 +53,8 @@ Consolidate 63 existing PocketSmith categories down to 12 new categories, using 
 | Government Services | Bills | Government fees |
 | Automotive | Transport | Car-related expenses |
 | Computing | Household | Home computers/tech |
-| Housing | Household | Housing-related costs |
-| Cash Withdrawal | Transfer | Cash transfers |
+| Housing | Mortgage | Housing-related costs |
+| Cash Withdrawal | Household | Cash transfers |
 | Postage | Household | Home office supplies |
 | Jewellery | Shopping | Luxury/fashion items |
 | Child Care | Education | Child care services |
@@ -65,28 +65,28 @@ Consolidate 63 existing PocketSmith categories down to 12 new categories, using 
 | Electronics | Household | Home electronics |
 | Healthcare / Medical | Bills | Health services |
 | Gasoline/Fuel | Transport | Vehicle fuel |
-| Rentals | Bills | Rental services |
+| Rentals | Mortgage | Rental services |
 | Phone | Bills | Phone services |
 | Charitable Giving | Giving | Charity donations |
 | Office Supplies | Household | Home office supplies |
 | Utilities | Bills | Utility bills |
-| Personal Care | Household | Personal care items |
+| Personal Care | Shopping | Personal care items |
 | Automotive Expenses | Transport | Car expenses |
 | Clothing | Household | Basic clothing |
-| Rent | Bills | Rental payments |
+| Rent | Mortgage | Rental payments |
 | Child/Dependent Expenses | Education | Child-related costs |
-| Taxes | Bills | Tax payments |
+| Taxes | Income | Tax payments |
 | Home Improvement | Household | Home maintenance |
 | Telephone Services | Bills | Phone/internet bills |
 | Dues and Subscriptions | Bills | Subscription services |
 | Pets/Pet Care | Household | Pet expenses |
 | Cable/Satellite Services | Bills | Internet/TV services |
-| Securities Trades | Transfer | Investment transfers |
-| Retirement Contributions | Transfer | Retirement transfers |
+| Securities Trades | Income | Investment transfers |
+| Retirement Contributions | Income | Retirement transfers |
 | Hobbies | Shopping | Hobby spending |
 | Postage and Shipping | Household | Shipping/postage |
 | Power | Bills | Utility bills |
-| Loan Repayment | Bills | Loan payments |
+| Loan Repayment | Mortgage | Loan payments |
 
 ## Step 2: Label Strategy
 
@@ -100,71 +100,95 @@ Consolidate 63 existing PocketSmith categories down to 12 new categories, using 
 
 ### Proposed Labels
 
-**Bills-related labels:**
-- `utilities` (Power, Utilities)
-- `telecom` (Phone, Telephone Services, Cable/Satellite Services)
-- `insurance` (Insurance)
-- `medical` (Medical, Healthcare/Medical)
-- `professional` (Professional Services, Government Services)
-- `subscription` (Online Services, Dues and Subscriptions)
-- `rent` (Rent, Rentals)
-- `tax` (Taxes)
-- `loan` (Loan Repayment)
-
-**Transport labels:**
-- `fuel` (Fuel, Gasoline/Fuel)
-- `automotive` (Automotive, Automotive Expenses)
-
-**Household labels:**
-- `maintenance` (Home Maintenance, Home Improvement)
-- `office` (Office Supplies, Printing, Postage)
-- `electronics` (Computing, Electronics)
-- `personal-care` (Personal Care)
-- `pets` (Pets/Pet Care)
-- `clothing` (Clothing, Clothing/Shoes)
-
-**Transfer labels:**
-- `investment` (Securities Trades)
-- `retirement` (Retirement Contributions)
-- `cash` (Cash Withdrawal)
+**Labels for any category:**
 - `refund` (Refunds/Adjustments)
 
+**Bills-related labels:**
+- `utilities` (Power, Utilities, Water, Council rates)
+- `internet` (Phone, Telephone Services, Cable/Satellite Services)
+- `insurance` (Home Insurance)
+- `medical` (Medical, Healthcare/Medical, Health Insurance)
+- `subscriptions` (Online Services, Dues and Subscriptions, Apps)
+
 **Dining labels:**
-- `alcohol` (Alcohol & Bars)
+- `lunch` (Work lunch)
+- `takeout` (Takeout for family)
+- `restaurants` (Cafes, Dining, Restaurants, Bars)
 
 **Education labels:**
+- `classes` (School Fees, Events, Uniforms, Tutoring, Music Lessons)
+- `camps` (School Camps, Youth Camps, Excursions)
 - `childcare` (Child Care, Child/Dependent Expenses)
 
 **Giving labels:**
+- `church` (Church Giving)
+- `missions` (Missions Giving, Mission Expenses)
 - `charity` (Charitable Giving)
 
-**Shopping labels:**
-- `jewelry` (Jewellery)
-- `hobby` (Hobbies)
+**Groceries labels:**
+- `markets` (Fresh Markets, Butchers, Farmers Markets)
+- `supermarkets` (Supermarkets)
 
 **Holiday labels:**
-- `travel` (Travel)
+- `flights` (Flights, Airplanes, Trains)
+- `hotels` (Hotels, Airbnbs)
+- `tours` (Tourism Expenses)
+
+**Household labels:**
+- `personal-care` (Clothing, Clothing/Shoes, Personal Care, Hairdressing)
+- `maintenance` (Home Maintenance, Home Improvement, Cleaning, Lawn, Repairs, Tradies)
+- `production` (Office Supplies, Printing, Postage, Computing, Electronics)
+- `pets` (Pets/Pet Care)
+- `cash` (Cash Withdrawal)
+
+**Income labels:**
+- `salary` (Salary)
+- `stocks` (Stock Income, RSU, ESPP)
+- `tax` (Taxes)
+- `loans` (Loan Repayment, Family Loans)
+- `other-income` (Government Payments, NDIS)
+- `investment` (Securities Trades, Investment Gains and Losses)
+- `superannuation` (Retirement Contributions, Superannuation)
+
+**Mortgage labels:**
+- `loans` (Loan Repayment)
+- `rent` (Rent, Rentals)
+
+**Shopping labels:**
+- `health` (Sports)
+- `fashion` (Fashion, Clothing, Clothing/Shoes, Makeup)
+- `personal-care` (Personal Care, Nails, Pedicures, Manicures)
+- `hobbies` (Hobbies, Games, Music, Toys)
+
+**Transport labels:**
+- `petrol` (Fuel, Gasoline/Fuel)
+- `car` (Automotive, Automotive Expenses, Car Servicing, Repair)
+- `insurance` (Car Insurance)
+- `public-transport` (Public Transport)
+- `parking` (Parking)
+- `fines` (Parking Fines, Speeding Fines)
+- `tolls` (Toll Roads)
 
 ### Category-to-Label Mapping
 
 | Old Category | New Category | Suggested Labels |
 |--------------|--------------|------------------|
-| Bills | Bills | (none - generic bills) |
-| Eating out | Dining | (none - generic dining) |
-| Education | Education | (none - generic education) |
-| Giving | Giving | (none - generic giving) |
+| Bills | Bills | `utilities` |
+| Eating out | Dining | `restaurants` |
+| Education | Education | `classes` |
+| Giving | Giving | `church` |
 | Groceries | Groceries | (none - generic groceries) |
 | Household | Household | (none - generic household) |
-| Income | Income | (none - generic income) |
+| Income | Income | `salary` |
 | Insurance | Bills | `insurance` |
 | Medical | Bills | `medical` |
-| Mortgage | Mortgage | (none - specific category) |
-| Online Services | Bills | `subscription` |
-| Recreation | Shopping | (none - general shopping) |
+| Mortgage | Mortgage | `loans` |
+| Online Services | Bills | `subscriptions` |
+| Recreation | Shopping | `hobbies` |
 | Service Charges/Fees | Bills | (none - generic fees) |
 | Transfer | Transfer | (none - generic transfer) |
 | Transport | Transport | (none - generic transport) |
-| Clothing/Shoes | Household | `clothing` |
+| Clothing/Shoes | Household | `personal-care` |
 | Refunds/Adjustments | Transfer | `refund` |
 | Healthcare/Medical | Bills | `medical` |
 | Home Maintenance | Household | `maintenance` |
@@ -172,46 +196,46 @@ Consolidate 63 existing PocketSmith categories down to 12 new categories, using 
 | Shopping | Shopping | (none - generic shopping) |
 | Provider Fee | Bills | (none - generic provider) |
 | Bank Fees | Bills | (none - bank fees) |
-| Fuel | Transport | `fuel` |
-| Alcohol & Bars | Dining | `alcohol` |
-| Professional Services | Bills | `professional` |
-| Government Services | Bills | `professional` |
-| Automotive | Transport | `automotive` |
-| Computing | Household | `electronics` |
-| Housing | Household | (none - generic housing) |
-| Cash Withdrawal | Transfer | `cash` |
-| Postage | Household | `office` |
-| Jewellery | Shopping | `jewelry` |
+| Fuel | Transport | `petrol` |
+| Alcohol & Bars | Dining | `restaurants` |
+| Professional Services | Bills | (none) |
+| Government Services | Bills | (none) |
+| Automotive | Transport | `car` |
+| Computing | Household | `production` |
+| Housing | Mortgage | `rent` |
+| Cash Withdrawal | Household | `cash` |
+| Postage | Household | `production` |
+| Jewellery | Shopping | `fashion` |
 | Child Care | Education | `childcare` |
 | Business Miscellaneous | Bills | (none - business) |
-| Printing | Household | `office` |
-| Restaurants/Dining | Dining | (none - generic dining) |
-| Travel | Holidays | `travel` |
-| Electronics | Household | `electronics` |
+| Printing | Household | `production` |
+| Restaurants/Dining | Dining | `restaurants` |
+| Travel | Holidays | `flights` |
+| Electronics | Household | `production` |
 | Healthcare / Medical | Bills | `medical` |
-| Gasoline/Fuel | Transport | `fuel` |
-| Rentals | Bills | `rent` |
-| Phone | Bills | `telecom` |
+| Gasoline/Fuel | Transport | `petrol` |
+| Rentals | Mortgage | `rent` |
+| Phone | Bills | `internet` |
 | Charitable Giving | Giving | `charity` |
-| Office Supplies | Household | `office` |
+| Office Supplies | Household | `production` |
 | Utilities | Bills | `utilities` |
-| Personal Care | Household | `personal-care` |
-| Automotive Expenses | Transport | `automotive` |
-| Clothing | Household | `clothing` |
-| Rent | Bills | `rent` |
+| Personal Care | Shopping | `personal-care` |
+| Automotive Expenses | Transport | `car` |
+| Clothing | Household | `personal-care` |
+| Rent | Mortgage | `rent` |
 | Child/Dependent Expenses | Education | `childcare` |
-| Taxes | Bills | `tax` |
+| Taxes | Income | `tax` |
 | Home Improvement | Household | `maintenance` |
-| Telephone Services | Bills | `telecom` |
-| Dues and Subscriptions | Bills | `subscription` |
+| Telephone Services | Bills | `internet` |
+| Dues and Subscriptions | Bills | `subscriptions` |
 | Pets/Pet Care | Household | `pets` |
-| Cable/Satellite Services | Bills | `telecom` |
-| Securities Trades | Transfer | `investment` |
-| Retirement Contributions | Transfer | `retirement` |
-| Hobbies | Shopping | `hobby` |
-| Postage and Shipping | Household | `office` |
+| Cable/Satellite Services | Bills | `internet` |
+| Securities Trades | Income | `investment` |
+| Retirement Contributions | Income | `superannuation` |
+| Hobbies | Shopping | `hobbies` |
+| Postage and Shipping | Household | `production` |
 | Power | Bills | `utilities` |
-| Loan Repayment | Bills | `loan` |
+| Loan Repayment | Mortgage | `loans` |
 
 ## Step 3: Implementation Plan
 
