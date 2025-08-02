@@ -256,20 +256,56 @@ For each existing category:
 4. Delete old category
 5. Update progress tracking
 
-### API Operations Needed
-- `client.transactions.list_transactions(user_id, category_id=X)`
-- `client.transactions.update_transaction(id, category_id=Y)`
-- `client.labels.create_label()` (if needed)
-- `client.transactions.assign_labels()` (if available)
-- `client.categories.delete_category(id)`
+### API Operations Available
+
+**✅ Available:**
+- `client.transactions.list_transactions(user_id)` - Returns ALL user transactions (no category filter)
+- `client.transactions.update_transaction(transaction_id, **kwargs)` - Update transaction with new category_id and labels
+- `client.categories.delete_category(category_id)` - Delete category (uncategorizes all transactions)
+- `client.categories.create_category(user_id, **kwargs)` - Create new categories
+
+**❌ Not Available:**
+- Direct category filtering in `list_transactions()` - must filter transactions manually
+
+**Alternative Approach:**
+Since there's no `list_transactions_by_category()`, we need to:
+1. Get ALL transactions with `client.transactions.list_transactions(user_id)`
+2. Filter them manually by checking `transaction.category['id']` 
+3. Process each matching transaction
+
+**Transaction Structure:**
+```python
+transaction.to_dict() = {
+    'id': 123456,
+    'category': {'id': 7312266, 'title': 'Bills', ...},
+    'labels': [],  # List of current labels
+    'payee': 'Merchant name',
+    'amount': -100.50,
+    ...
+}
+```
+
+**Labels:**
+- Labels don't require creation - just provide as list in `update_transaction()`
+- Current labels accessible via `transaction.labels`
+
+### Revised Process Flow
+For each existing category:
+1. Load ALL transactions with `client.transactions.list_transactions(user_id)`
+2. Filter for transactions where `transaction.category['id'] == old_category_id`
+3. For each matching transaction:
+   - Update with new category_id and labels using `client.transactions.update_transaction()`
+   - Mark as processed in progress file
+4. Verify no transactions remain in old category (re-check all transactions)
+5. Delete old category with `client.categories.delete_category()`
+6. Update progress tracking
 
 ### Progress File Format
 ```json
 {
   "processed_categories": [7312266, 7312544, ...],
   "processed_transactions": [12345, 67890, ...],
-  "created_categories": {"new_category_name": new_id, ...},
-  "created_labels": {"label_name": label_id, ...}
+  "created_categories": {"Bills": new_id, "Dining": new_id, ...}
 }
 ```
 
