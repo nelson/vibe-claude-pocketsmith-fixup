@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from pocketsmith import PocketsmithClient
 
 
@@ -27,6 +28,25 @@ def main():
         if not categories:
             print("No categories found in your PocketSmith account.")
             return
+        
+        # Convert categories to serializable format and save to JSON file
+        categories_data = []
+        for category in categories:
+            cat_dict = {
+                'id': category.get('id'),
+                'title': category.get('title'),
+                'colour': category.get('colour'),
+                'parent_id': category.get('parent_id'),
+                'is_bill': category.get('is_bill'),
+                'is_transfer': category.get('is_transfer'),
+                'created_at': category.get('created_at').isoformat() if category.get('created_at') else None,
+                'updated_at': category.get('updated_at').isoformat() if category.get('updated_at') else None
+            }
+            categories_data.append(cat_dict)
+        
+        with open('categories.json', 'w') as f:
+            json.dump(categories_data, f, indent=2)
+        print(f"Saved {len(categories)} categories to categories.json")
         
         print(f"\nFound {len(categories)} categories:")
         print("-" * 50)
