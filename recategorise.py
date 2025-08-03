@@ -292,6 +292,14 @@ def get_transactions_page(client, user_id, page=1, per_page=1000):
 
 def is_transaction_processed(transaction_id, processed_transactions):
     """Check if transaction is already processed using optimized search"""
+    # Convert to set for O(1) lookup if list is large
+    if len(processed_transactions) > 100:
+        # Use set for large lists - convert once and cache
+        if not hasattr(is_transaction_processed, '_processed_set'):
+            is_transaction_processed._processed_set = set(processed_transactions)
+        return transaction_id in is_transaction_processed._processed_set
+    
+    # For small lists, use the optimized linear search
     # processed_transactions is in ascending order
     for processed_id in processed_transactions:
         if processed_id == transaction_id:
@@ -344,16 +352,31 @@ def process_transaction(client, user_id, transaction, progress):
         # Transaction has no category - record ID only
         if transaction_id not in progress["uncategorized_transactions"]:
             progress["uncategorized_transactions"].append(transaction_id)
-        # Add to head of processed list to maintain ascending order
-        progress["processed_transactions"].insert(0, transaction_id)
+        # Add to processed list (will be sorted later for efficiency)
+        progress["processed_transactions"].append(transaction_id)
+        # Invalidate cached set
+        if hasattr(is_transaction_processed, '_processed_set'):
+            delattr(is_transaction_processed, '_processed_set')
         return False, "uncategorized"
+    
+    # Skip transactions that already have underscore-prefixed categories (our new categories)
+    if category_title and category_title.startswith('_'):
+        # Transaction already has a new category - skip it
+        progress["processed_transactions"].append(transaction_id)
+        # Invalidate cached set
+        if hasattr(is_transaction_processed, '_processed_set'):
+            delattr(is_transaction_processed, '_processed_set')
+        return False, "already_remapped"
     
     if category_id not in CATEGORY_MAPPING:
         # Category not in mapping - record ID only
         if transaction_id not in progress["unmapped_transactions"]:
             progress["unmapped_transactions"].append(transaction_id)
-        # Add to head of processed list to maintain ascending order
-        progress["processed_transactions"].insert(0, transaction_id)
+        # Add to processed list (will be sorted later for efficiency)
+        progress["processed_transactions"].append(transaction_id)
+        # Invalidate cached set
+        if hasattr(is_transaction_processed, '_processed_set'):
+            delattr(is_transaction_processed, '_processed_set')
         return False, "unmapped_category"
     
     old_category_id = category_id
@@ -369,8 +392,11 @@ def process_transaction(client, user_id, transaction, progress):
             # Category creation failed - record as unmapped
             if transaction_id not in progress["unmapped_transactions"]:
                 progress["unmapped_transactions"].append(transaction_id)
-            # Add to head of processed list to maintain ascending order
-            progress["processed_transactions"].insert(0, transaction_id)
+            # Add to processed list (will be sorted later for efficiency)
+            progress["processed_transactions"].append(transaction_id)
+            # Invalidate cached set
+            if hasattr(is_transaction_processed, '_processed_set'):
+                delattr(is_transaction_processed, '_processed_set')
             return False, "category_creation_failed"
         
         # Prepare update data
@@ -400,8 +426,11 @@ def process_transaction(client, user_id, transaction, progress):
             raise Exception(f"HTTP {response.status_code}: {error_details}")
         response.raise_for_status()
         
-        # Mark as processed - add to head to maintain ascending order
-        progress["processed_transactions"].insert(0, transaction_id)
+        # Mark as processed - append for efficiency (will be sorted later)
+        progress["processed_transactions"].append(transaction_id)
+        # Invalidate cached set
+        if hasattr(is_transaction_processed, '_processed_set'):
+            delattr(is_transaction_processed, '_processed_set')
         progress["total_transactions_remapped"] += 1
         
         # Rate limiting
@@ -530,14 +559,16 @@ def main():
                     progress["last_processed_transaction_id"], 
                     current_id
                 )
-                save_progress(progress)
                             
                 # Test mode limit
                 if args.test_limit and transactions_processed_this_run >= args.test_limit:
                     print(f"\n🧪 TEST LIMIT REACHED: Processed {transactions_processed_this_run} transactions")
                     break
             
-            # Update progress
+            # Sort processed transactions for optimal search performance
+            progress["processed_transactions"].sort()
+            
+            # Update progress and save once per page
             progress["last_processed_page"] = page
             save_progress(progress)
             
