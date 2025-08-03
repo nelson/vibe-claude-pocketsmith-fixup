@@ -8,4 +8,5 @@ dependencies = [
     "llm>=0.26",
     "llm-anthropic>=0.17",
     "pocketsmith-api>=2.1.1",
+    "requests>=2.32.4",
 ]
