@@ -86,6 +86,73 @@ CATEGORY_MAPPING = {
     20895553: {"new_category": "Household", "label": "production"},  # Postage and Shipping -> Household
     24261500: {"new_category": "Bills", "label": "utilities"},  # Power -> Bills
     24899097: {"new_category": "Mortgage", "label": "loans"},  # Loan Repayment -> Mortgage
+    
+    # Subcategories (children) - map to same as parent
+    7312268: {"new_category": "Bills", "label": "utilities"},  # Electricity (child of Bills)
+    7312269: {"new_category": "Bills", "label": "utilities"},  # Gas (child of Bills)
+    7312270: {"new_category": "Bills", "label": "internet"},  # Internet (child of Bills)
+    7312271: {"new_category": "Bills", "label": "subscription"},  # Media (child of Bills)
+    7312272: {"new_category": "Bills", "label": "comms"},  # Mobile (child of Bills)
+    7312273: {"new_category": "Bills", "label": "utilities"},  # Rates (child of Bills)
+    7314701: {"new_category": "Income", "label": "tax"},  # Tax (child of Bills)
+    7312274: {"new_category": "Bills", "label": "utilities"},  # Water (child of Bills)
+    7312545: {"new_category": "Dining", "label": "restaurants"},  # Bubble tea (child of Eating out)
+    7312546: {"new_category": "Dining", "label": "restaurants"},  # Coffee (child of Eating out)
+    7312547: {"new_category": "Dining", "label": "takeout"},  # Fast food (child of Eating out)
+    7312548: {"new_category": "Dining", "label": "restaurants"},  # Paying for others (child of Eating out)
+    7312550: {"new_category": "Education", "label": "childcare"},  # Childcare (child of Education)
+    7312551: {"new_category": "Education", "label": "classes"},  # Music (child of Education)
+    7312552: {"new_category": "Education", "label": "classes"},  # School (child of Education)
+    7312553: {"new_category": "Education", "label": "classes"},  # Tutoring (child of Education)
+    7312555: {"new_category": "Giving", "label": "church"},  # Church (child of Giving)
+    7280222: {"new_category": "Giving", "label": "charity"},  # Gifts (child of Giving)
+    7312556: {"new_category": "Giving", "label": "missions"},  # Missionary (child of Giving)
+    7312558: {"new_category": "Groceries", "label": "markets"},  # Asian stores (child of Groceries)
+    7312559: {"new_category": "Groceries", "label": "markets"},  # Markets (child of Groceries)
+    7312557: {"new_category": "Groceries", "label": "supermarkets"},  # Supermarket (child of Groceries)
+    7312561: {"new_category": "Household", "label": "production"},  # Appliances (child of Household)
+    7280205: {"new_category": "Household", "label": "cash"},  # Cash spend (child of Household)
+    7312563: {"new_category": "Household", "label": "production"},  # Furniture (child of Household)
+    7312564: {"new_category": "Household", "label": "maintenance"},  # Gardening (child of Household)
+    7312565: {"new_category": "Household", "label": "maintenance"},  # Maintanence (child of Household)
+    7312566: {"new_category": "Household", "label": "personal-care"},  # Occasions (child of Household)
+    7312562: {"new_category": "Household", "label": "personal-care"},  # Self-care (child of Household)
+    7312567: {"new_category": "Household", "label": "production"},  # Tools (child of Household)
+    7666458: {"new_category": "Household", "label": "production"},  # Supplies (child of Household)
+    7341096: {"new_category": "Income", "label": None},  # Expense Reimbursement (child of Income)
+    7314702: {"new_category": "Income", "label": "investment"},  # Investment (child of Income)
+    7314703: {"new_category": "Income", "label": "other-income"},  # Rental (child of Income)
+    7314704: {"new_category": "Income", "label": "salary"},  # Salary (child of Income)
+    7314705: {"new_category": "Income", "label": "superannuation"},  # Superannuation (child of Income)
+    7312569: {"new_category": "Bills", "label": "medical"},  # Health (child of Insurance)
+    7312570: {"new_category": "Bills", "label": "insurance"},  # Home (child of Insurance)
+    7312571: {"new_category": "Transport", "label": "insurance"},  # Motor (child of Insurance)
+    7312573: {"new_category": "Bills", "label": "medical"},  # Dental (child of Medical)
+    7312574: {"new_category": "Bills", "label": "medical"},  # GP (child of Medical)
+    7312575: {"new_category": "Bills", "label": "medical"},  # NDIS (child of Medical)
+    7312576: {"new_category": "Bills", "label": "medical"},  # Optical (child of Medical)
+    7312578: {"new_category": "Mortgage", "label": None},  # Equity (child of Mortgage)
+    7312579: {"new_category": "Mortgage", "label": None},  # Interest (child of Mortgage)
+    7312581: {"new_category": "Dining", "label": "restaurants"},  # Alcohol (child of Recreation)
+    7312582: {"new_category": "Shopping", "label": "hobbies"},  # Books (child of Recreation)
+    7314164: {"new_category": "Shopping", "label": "hobbies"},  # Entertainment (child of Recreation)
+    7312583: {"new_category": "Shopping", "label": "hobbies"},  # Gadgets (child of Recreation)
+    7312600: {"new_category": "Shopping", "label": "hobbies"},  # Games (child of Recreation)
+    7312584: {"new_category": "Holidays", "label": None},  # Holidays (child of Recreation)
+    7312585: {"new_category": "Holidays", "label": "hotels"},  # Hotels (child of Recreation)
+    7312586: {"new_category": "Shopping", "label": "health"},  # Sports (child of Recreation)
+    7280182: {"new_category": "Transfer", "label": None},  # Credit Card Payments (child of Transfer)
+    7312589: {"new_category": "Transfer", "label": None},  # Inter-account (child of Transfer)
+    7312588: {"new_category": "Transfer", "label": None},  # Loan payments (child of Transfer)
+    7312591: {"new_category": "Transport", "label": "fines"},  # Fines (child of Transport)
+    7312592: {"new_category": "Holidays", "label": "flights"},  # Flights (child of Transport)
+    7312593: {"new_category": "Transport", "label": "parking"},  # Parking (child of Transport)
+    7312594: {"new_category": "Transport", "label": "petrol"},  # Petrol (child of Transport)
+    7312595: {"new_category": "Transport", "label": "public-transport"},  # Public transport (child of Transport)
+    7312597: {"new_category": "Transport", "label": "car"},  # Registration (child of Transport)
+    7312598: {"new_category": "Transport", "label": "car"},  # Servicing (child of Transport)
+    7707848: {"new_category": "Transport", "label": "car"},  # Taxi (child of Transport)
+    7312596: {"new_category": "Transport", "label": "tolls"},  # Tolls (child of Transport)
 }
 
 PROGRESS_FILE = "recategorise_progress.json"
@@ -105,6 +172,8 @@ def load_progress():
         "created_categories": {},
         "total_transactions_processed": 0,
         "total_transactions_remapped": 0,
+        "unmapped_transactions": [],  # Transactions that couldn't be remapped
+        "uncategorized_transactions": [],  # Transactions with no category
         "completed": False
     }
 
@@ -122,20 +191,48 @@ def get_or_create_category(client, user_id, category_name, progress):
     if category_name in progress["created_categories"]:
         return progress["created_categories"][category_name]
     
-    # Check if category already exists (but only consider new categories)
-    # Assume category IDs > 24899097 are new categories created during recategorisation
+    # Check if we can reuse an existing category with underscore prefix (from previous runs)
+    # Only reuse categories we've created (with underscore prefix), not original data categories
     categories = client.categories.list_categories(user_id)
+    target_name = f"_{category_name}"
     for cat in categories:
-        if cat.title == category_name and cat.id > 24899097:
-            print(f"Found existing new category: {category_name} (ID: {cat.id})")
+        if cat.title == target_name:
+            print(f"Found existing new category: {cat.title} (ID: {cat.id})")
             progress["created_categories"][category_name] = cat.id
             save_progress(progress)
             return cat.id
     
-    # Create new category
+    # Create new category using requests (based on API documentation)
     print(f"Creating new category: {category_name}")
-    new_category = client.categories.create_category(user_id, title=category_name)
-    category_id = new_category.id
+    try:
+        import requests
+        
+        # Use direct requests call as shown in PocketSmith documentation
+        url = f"https://api.pocketsmith.com/v2/users/{user_id}/categories"
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "X-Developer-Key": client.api_client.configuration.api_key['developerKey']
+        }
+        # Add underscore prefix to avoid conflicts with existing categories
+        unique_name = f"_{category_name}"
+        data = {"title": unique_name}
+        
+        response = requests.post(url, headers=headers, json=data)
+        if response.status_code != 201:  # Not created
+            error_details = response.text
+            raise Exception(f"HTTP {response.status_code}: {error_details}")
+        response.raise_for_status()
+        
+        category_data = response.json()
+        category_id = category_data['id']
+        print(f"✅ Created category: {unique_name} (ID: {category_id})")
+        
+    except Exception as e:
+        print(f"❌ Error creating category: {e}")
+        # For now, skip this transaction - we'll handle this better later
+        return None
+    
     progress["created_categories"][category_name] = category_id
     save_progress(progress)
     return category_id
@@ -201,12 +298,46 @@ def process_transaction(client, user_id, transaction, progress):
         return False, "already_processed"
     
     # Check if transaction needs remapping
-    if not transaction.category or transaction.category.id not in CATEGORY_MAPPING:
-        # Mark as processed but no remapping needed
-        progress["processed_transactions"].append(transaction.id)
-        return False, "no_remap_needed"
+    # Handle both dict and object formats for category
+    if hasattr(transaction.category, 'id'):
+        category_id = transaction.category.id
+        category_title = transaction.category.title
+    elif isinstance(transaction.category, dict):
+        category_id = transaction.category.get('id')
+        category_title = transaction.category.get('title')
+    else:
+        category_id = None
+        category_title = None
     
-    old_category_id = transaction.category.id
+    if not transaction.category:
+        # Transaction has no category - record it
+        uncategorized_info = {
+            "id": transaction.id,
+            "payee": transaction.payee,
+            "amount": transaction.amount,
+            "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date)
+        }
+        if uncategorized_info not in progress["uncategorized_transactions"]:
+            progress["uncategorized_transactions"].append(uncategorized_info)
+        progress["processed_transactions"].append(transaction.id)
+        return False, "uncategorized"
+    
+    if category_id not in CATEGORY_MAPPING:
+        # Category not in mapping - record it for later review
+        unmapped_info = {
+            "id": transaction.id,
+            "payee": transaction.payee,
+            "amount": transaction.amount,
+            "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date),
+            "category_id": category_id,
+            "category_title": category_title
+        }
+        if unmapped_info not in progress["unmapped_transactions"]:
+            progress["unmapped_transactions"].append(unmapped_info)
+        progress["processed_transactions"].append(transaction.id)
+        return False, "unmapped_category"
+    
+    old_category_id = category_id
     mapping = CATEGORY_MAPPING[old_category_id]
     new_category_name = mapping["new_category"]
     label = mapping["label"]
@@ -214,6 +345,22 @@ def process_transaction(client, user_id, transaction, progress):
     try:
         # Get or create new category
         new_category_id = get_or_create_category(client, user_id, new_category_name, progress)
+        
+        if new_category_id is None:
+            # Category creation failed - record as unmapped
+            unmapped_info = {
+                "id": transaction.id,
+                "payee": transaction.payee,
+                "amount": transaction.amount,
+                "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date),
+                "category_id": old_category_id,
+                "category_title": category_title,
+                "error": "category_creation_failed"
+            }
+            if unmapped_info not in progress["unmapped_transactions"]:
+                progress["unmapped_transactions"].append(unmapped_info)
+            progress["processed_transactions"].append(transaction.id)
+            return False, "category_creation_failed"
         
         # Prepare update data
         update_data = {"category_id": new_category_id}
@@ -225,9 +372,22 @@ def process_transaction(client, user_id, transaction, progress):
                 current_labels.append(label)
             update_data["labels"] = current_labels
         
-        # Update transaction
-        print(f"  Remapping transaction {transaction.id}: {transaction.payee[:50]} | {transaction.category.title} -> {new_category_name}" + (f" +{label}" if label else ""))
-        client.transactions.update_transaction(transaction.id, **update_data)
+        # Update transaction using direct REST API
+        print(f"  Remapping transaction {transaction.id}: {transaction.payee[:50]} | {category_title} -> {new_category_name}" + (f" +{label}" if label else ""))
+        
+        import requests
+        url = f"https://api.pocketsmith.com/v2/transactions/{transaction.id}"
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "X-Developer-Key": client.api_client.configuration.api_key['developerKey']
+        }
+        
+        response = requests.put(url, headers=headers, json=update_data)
+        if response.status_code not in [200, 204]:  # Success codes for PUT
+            error_details = response.text
+            raise Exception(f"HTTP {response.status_code}: {error_details}")
+        response.raise_for_status()
         
         # Mark as processed
         progress["processed_transactions"].append(transaction.id)
@@ -309,6 +469,8 @@ def main():
         
         print(f"\nProgress: Processed {progress['total_transactions_processed']} transactions")
         print(f"Remapped: {progress['total_transactions_remapped']} transactions")
+        print(f"Unmapped: {len(progress.get('unmapped_transactions', []))} transactions")
+        print(f"Uncategorized: {len(progress.get('uncategorized_transactions', []))} transactions")
         print(f"Last processed page: {progress['last_processed_page']}")
         print(f"Created categories: {list(progress['created_categories'].keys())}")
         
@@ -386,7 +548,24 @@ def main():
         print(f"Transactions remapped this run: {transactions_remapped_this_run}")
         print(f"Total transactions processed: {progress['total_transactions_processed']}")
         print(f"Total transactions remapped: {progress['total_transactions_remapped']}")
+        print(f"Unmapped transactions: {len(progress.get('unmapped_transactions', []))}")
+        print(f"Uncategorized transactions: {len(progress.get('uncategorized_transactions', []))}")
         print(f"Created categories: {list(progress['created_categories'].keys())}")
+        
+        # Show details of unmapped transactions
+        if progress.get('unmapped_transactions'):
+            print(f"\n⚠️  Unmapped transactions (category not in mapping):")
+            for tx in progress['unmapped_transactions'][:5]:  # Show first 5
+                print(f"  - {tx['payee'][:40]}... | Category: {tx['category_title']} (ID: {tx['category_id']})")
+            if len(progress['unmapped_transactions']) > 5:
+                print(f"  ... and {len(progress['unmapped_transactions']) - 5} more")
+        
+        if progress.get('uncategorized_transactions'):
+            print(f"\n⚠️  Uncategorized transactions (no category assigned):")
+            for tx in progress['uncategorized_transactions'][:5]:  # Show first 5
+                print(f"  - {tx['payee'][:40]}... | Amount: {tx['amount']}")
+            if len(progress['uncategorized_transactions']) > 5:
+                print(f"  ... and {len(progress['uncategorized_transactions']) - 5} more")
         
         if not args.test_limit and progress["completed"]:
             print("\n✅ All transactions have been processed!")
