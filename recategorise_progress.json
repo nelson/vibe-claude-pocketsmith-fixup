@@ -1,0 +1,28 @@
+{
+  "start_time": "2025-08-03T18:27:41.977143",
+  "end_time": null,
+  "last_processed_page": 19,
+  "last_processed_transaction_id": 1410650946,
+  "processed_transactions": [
+    1410506385,
+    1410650826,
+    1410650946
+  ],
+  "created_categories": {
+    "Transfer": 24918120,
+    "Dining": 24918504
+  },
+  "total_transactions_processed": 3,
+  "total_transactions_remapped": 2,
+  "unmapped_transactions": [],
+  "uncategorized_transactions": [
+    {
+      "id": 1410650946,
+      "payee": "ITS CORN",
+      "amount": -14.22,
+      "date": "2025-08-02"
+    }
+  ],
+  "completed": false,
+  "last_updated": "2025-08-03T23:03:11.825172"
+}
