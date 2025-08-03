@@ -257,29 +257,28 @@ def parse_link_header(link_header):
 def get_transactions_page(client, user_id, page=1, per_page=1000):
     """Get a page of transactions using pagination"""
     try:
-        # The list_transactions method might not support pagination parameters directly
-        # We'll need to use the underlying API client
-        response = client.api_client.call_api(
-            '/users/{id}/transactions',
-            'GET',
-            path_params={'id': user_id},
-            query_params={'page': page, 'per_page': per_page},
-            header_params={},
-            body=None,
-            post_params=[],
-            files={},
-            response_type='list[Transaction]',
-            auth_settings=['developers'],
-            async_req=False,
-            _return_http_data_only=False
-        )
+        # Use direct requests call since the underlying API client auth isn't working
+        import requests
         
-        transactions = response[0]  # The actual data
-        headers = response[2]  # Response headers
-        link_header = headers.get('Link', '')
+        api_key = client.api_client.configuration.api_key['developerKey']
+        url = f"https://api.pocketsmith.com/v2/users/{user_id}/transactions"
+        headers = {
+            "accept": "application/json",
+            "X-Developer-Key": api_key
+        }
+        params = {'page': page, 'per_page': per_page}
+        
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
+        
+        transactions_data = response.json()
+        
+        # Convert to transaction objects manually - for now just return raw data
+        # The processing code will need to handle both dict and object formats
+        link_header = response.headers.get('Link', '')
         links = parse_link_header(link_header)
         
-        return transactions, links
+        return transactions_data, links
         
     except Exception as e:
         print(f"Error fetching page {page}: {e}")
@@ -293,48 +292,68 @@ def get_transactions_page(client, user_id, page=1, per_page=1000):
 
 def process_transaction(client, user_id, transaction, progress):
     """Process a single transaction for remapping"""
+    # Handle both dict and object formats for transaction
+    if isinstance(transaction, dict):
+        transaction_id = transaction['id']
+        transaction_payee = transaction['payee']
+        transaction_amount = transaction['amount']
+        transaction_date = transaction['date']
+        transaction_category = transaction.get('category')
+        transaction_labels = transaction.get('labels', [])
+    else:
+        transaction_id = transaction.id
+        transaction_payee = transaction.payee
+        transaction_amount = transaction.amount
+        transaction_date = transaction.date
+        transaction_category = transaction.category
+        transaction_labels = transaction.labels
+    
     # Skip if already processed
-    if transaction.id in progress["processed_transactions"]:
+    if transaction_id in progress["processed_transactions"]:
         return False, "already_processed"
     
     # Check if transaction needs remapping
     # Handle both dict and object formats for category
-    if hasattr(transaction.category, 'id'):
-        category_id = transaction.category.id
-        category_title = transaction.category.title
-    elif isinstance(transaction.category, dict):
-        category_id = transaction.category.get('id')
-        category_title = transaction.category.get('title')
+    if transaction_category:
+        if isinstance(transaction_category, dict):
+            category_id = transaction_category.get('id')
+            category_title = transaction_category.get('title')
+        elif hasattr(transaction_category, 'id'):
+            category_id = transaction_category.id
+            category_title = transaction_category.title
+        else:
+            category_id = None
+            category_title = None
     else:
         category_id = None
         category_title = None
     
-    if not transaction.category:
+    if not transaction_category:
         # Transaction has no category - record it
         uncategorized_info = {
-            "id": transaction.id,
-            "payee": transaction.payee,
-            "amount": transaction.amount,
-            "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date)
+            "id": transaction_id,
+            "payee": transaction_payee,
+            "amount": transaction_amount,
+            "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date)
         }
         if uncategorized_info not in progress["uncategorized_transactions"]:
             progress["uncategorized_transactions"].append(uncategorized_info)
-        progress["processed_transactions"].append(transaction.id)
+        progress["processed_transactions"].append(transaction_id)
         return False, "uncategorized"
     
     if category_id not in CATEGORY_MAPPING:
         # Category not in mapping - record it for later review
         unmapped_info = {
-            "id": transaction.id,
-            "payee": transaction.payee,
-            "amount": transaction.amount,
-            "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date),
+            "id": transaction_id,
+            "payee": transaction_payee,
+            "amount": transaction_amount,
+            "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date),
             "category_id": category_id,
             "category_title": category_title
         }
         if unmapped_info not in progress["unmapped_transactions"]:
             progress["unmapped_transactions"].append(unmapped_info)
-        progress["processed_transactions"].append(transaction.id)
+        progress["processed_transactions"].append(transaction_id)
         return False, "unmapped_category"
     
     old_category_id = category_id
@@ -349,17 +368,17 @@ def process_transaction(client, user_id, transaction, progress):
         if new_category_id is None:
             # Category creation failed - record as unmapped
             unmapped_info = {
-                "id": transaction.id,
-                "payee": transaction.payee,
-                "amount": transaction.amount,
-                "date": str(transaction.date) if hasattr(transaction.date, 'isoformat') else str(transaction.date),
+                "id": transaction_id,
+                "payee": transaction_payee,
+                "amount": transaction_amount,
+                "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date),
                 "category_id": old_category_id,
                 "category_title": category_title,
                 "error": "category_creation_failed"
             }
             if unmapped_info not in progress["unmapped_transactions"]:
                 progress["unmapped_transactions"].append(unmapped_info)
-            progress["processed_transactions"].append(transaction.id)
+            progress["processed_transactions"].append(transaction_id)
             return False, "category_creation_failed"
         
         # Prepare update data
@@ -367,16 +386,16 @@ def process_transaction(client, user_id, transaction, progress):
         
         # Add label if specified
         if label:
-            current_labels = list(transaction.labels) if transaction.labels else []
+            current_labels = list(transaction_labels) if transaction_labels else []
             if label not in current_labels:
                 current_labels.append(label)
             update_data["labels"] = current_labels
         
         # Update transaction using direct REST API
-        print(f"  Remapping transaction {transaction.id}: {transaction.payee[:50]} | {category_title} -> {new_category_name}" + (f" +{label}" if label else ""))
+        print(f"  Remapping transaction {transaction_id}: {transaction_payee[:50]} | {category_title} -> {new_category_name}" + (f" +{label}" if label else ""))
         
         import requests
-        url = f"https://api.pocketsmith.com/v2/transactions/{transaction.id}"
+        url = f"https://api.pocketsmith.com/v2/transactions/{transaction_id}"
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -390,7 +409,7 @@ def process_transaction(client, user_id, transaction, progress):
         response.raise_for_status()
         
         # Mark as processed
-        progress["processed_transactions"].append(transaction.id)
+        progress["processed_transactions"].append(transaction_id)
         progress["total_transactions_remapped"] += 1
         
         # Rate limiting
@@ -399,7 +418,7 @@ def process_transaction(client, user_id, transaction, progress):
         return True, "remapped"
         
     except Exception as e:
-        print(f"  ERROR updating transaction {transaction.id}: {e}")
+        print(f"  ERROR updating transaction {transaction_id}: {e}")
         return False, f"error: {e}"
 
 
@@ -494,8 +513,14 @@ def main():
             
             page_remapped = 0
             for transaction in transactions:
+                # Handle both dict and object formats for transaction ID
+                if isinstance(transaction, dict):
+                    transaction_id = transaction['id']
+                else:
+                    transaction_id = transaction.id
+                    
                 # Skip transactions we've already processed (based on ID)
-                if transaction.id <= progress["last_processed_transaction_id"]:
+                if transaction_id <= progress["last_processed_transaction_id"]:
                     continue
                 
                 progress["total_transactions_processed"] += 1
@@ -510,7 +535,7 @@ def main():
                 # Update last processed transaction ID
                 progress["last_processed_transaction_id"] = max(
                     progress["last_processed_transaction_id"], 
-                    transaction.id
+                    transaction_id
                 )
                 
                 # Test mode limit
