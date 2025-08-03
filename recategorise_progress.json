@@ -1,28 +1,34 @@
 {
-  "start_time": "2025-08-03T18:27:41.977143",
+  "start_time": "2025-08-03T23:20:00.000000",
   "end_time": null,
   "last_processed_page": 19,
-  "last_processed_transaction_id": 1410650946,
+  "last_processed_transaction_id": 302705457,
   "processed_transactions": [
-    1410506385,
+    302705457,
+    302745313,
+    302745314,
+    302745315,
+    302745316,
+    302745317,
+    302745318,
+    302745319,
+    302745320,
+    302745321,
     1410650826,
     1410650946
   ],
   "created_categories": {
-    "Transfer": 24918120,
-    "Dining": 24918504
+    "Income": 24924387,
+    "Mortgage": 24924438
   },
-  "total_transactions_processed": 3,
-  "total_transactions_remapped": 2,
-  "unmapped_transactions": [],
+  "total_transactions_processed": 17,
+  "total_transactions_remapped": 10,
+  "unmapped_transactions": [
+    1410650826
+  ],
   "uncategorized_transactions": [
-    {
-      "id": 1410650946,
-      "payee": "ITS CORN",
-      "amount": -14.22,
-      "date": "2025-08-02"
-    }
+    1410650946
   ],
   "completed": false,
-  "last_updated": "2025-08-03T23:03:11.825172"
+  "last_updated": "2025-08-03T23:42:33.222450"
 }

@@ -172,8 +172,8 @@ def load_progress():
         "created_categories": {},
         "total_transactions_processed": 0,
         "total_transactions_remapped": 0,
-        "unmapped_transactions": [],  # Transactions that couldn't be remapped
-        "uncategorized_transactions": [],  # Transactions with no category
+        "unmapped_transactions": [],  # Transaction IDs that couldn't be remapped
+        "uncategorized_transactions": [],  # Transaction IDs with no category
         "completed": False
     }
 
@@ -290,6 +290,18 @@ def get_transactions_page(client, user_id, page=1, per_page=1000):
             return [], {}
 
 
+def is_transaction_processed(transaction_id, processed_transactions):
+    """Check if transaction is already processed using optimized search"""
+    # processed_transactions is in ascending order
+    for processed_id in processed_transactions:
+        if processed_id == transaction_id:
+            return True
+        elif processed_id > transaction_id:
+            # Since list is in ascending order, we can stop searching
+            break
+    return False
+
+
 def process_transaction(client, user_id, transaction, progress):
     """Process a single transaction for remapping"""
     # Handle both dict and object formats for transaction
@@ -308,8 +320,8 @@ def process_transaction(client, user_id, transaction, progress):
         transaction_category = transaction.category
         transaction_labels = transaction.labels
     
-    # Skip if already processed
-    if transaction_id in progress["processed_transactions"]:
+    # Skip if already processed using optimized check
+    if is_transaction_processed(transaction_id, progress["processed_transactions"]):
         return False, "already_processed"
     
     # Check if transaction needs remapping
@@ -329,31 +341,19 @@ def process_transaction(client, user_id, transaction, progress):
         category_title = None
     
     if not transaction_category:
-        # Transaction has no category - record it
-        uncategorized_info = {
-            "id": transaction_id,
-            "payee": transaction_payee,
-            "amount": transaction_amount,
-            "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date)
-        }
-        if uncategorized_info not in progress["uncategorized_transactions"]:
-            progress["uncategorized_transactions"].append(uncategorized_info)
-        progress["processed_transactions"].append(transaction_id)
+        # Transaction has no category - record ID only
+        if transaction_id not in progress["uncategorized_transactions"]:
+            progress["uncategorized_transactions"].append(transaction_id)
+        # Add to head of processed list to maintain ascending order
+        progress["processed_transactions"].insert(0, transaction_id)
         return False, "uncategorized"
     
     if category_id not in CATEGORY_MAPPING:
-        # Category not in mapping - record it for later review
-        unmapped_info = {
-            "id": transaction_id,
-            "payee": transaction_payee,
-            "amount": transaction_amount,
-            "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date),
-            "category_id": category_id,
-            "category_title": category_title
-        }
-        if unmapped_info not in progress["unmapped_transactions"]:
-            progress["unmapped_transactions"].append(unmapped_info)
-        progress["processed_transactions"].append(transaction_id)
+        # Category not in mapping - record ID only
+        if transaction_id not in progress["unmapped_transactions"]:
+            progress["unmapped_transactions"].append(transaction_id)
+        # Add to head of processed list to maintain ascending order
+        progress["processed_transactions"].insert(0, transaction_id)
         return False, "unmapped_category"
     
     old_category_id = category_id
@@ -367,18 +367,10 @@ def process_transaction(client, user_id, transaction, progress):
         
         if new_category_id is None:
             # Category creation failed - record as unmapped
-            unmapped_info = {
-                "id": transaction_id,
-                "payee": transaction_payee,
-                "amount": transaction_amount,
-                "date": str(transaction_date) if hasattr(transaction_date, 'isoformat') else str(transaction_date),
-                "category_id": old_category_id,
-                "category_title": category_title,
-                "error": "category_creation_failed"
-            }
-            if unmapped_info not in progress["unmapped_transactions"]:
-                progress["unmapped_transactions"].append(unmapped_info)
-            progress["processed_transactions"].append(transaction_id)
+            if transaction_id not in progress["unmapped_transactions"]:
+                progress["unmapped_transactions"].append(transaction_id)
+            # Add to head of processed list to maintain ascending order
+            progress["processed_transactions"].insert(0, transaction_id)
             return False, "category_creation_failed"
         
         # Prepare update data
@@ -408,8 +400,8 @@ def process_transaction(client, user_id, transaction, progress):
             raise Exception(f"HTTP {response.status_code}: {error_details}")
         response.raise_for_status()
         
-        # Mark as processed
-        progress["processed_transactions"].append(transaction_id)
+        # Mark as processed - add to head to maintain ascending order
+        progress["processed_transactions"].insert(0, transaction_id)
         progress["total_transactions_remapped"] += 1
         
         # Rate limiting
@@ -511,17 +503,14 @@ def main():
             
             print(f"Processing {len(transactions)} transactions from page {page}")
             
+            # Sort transactions by ID in descending order (newest first)
+            if transactions and isinstance(transactions[0], dict):
+                transactions.sort(key=lambda t: t['id'], reverse=True)
+            else:
+                transactions.sort(key=lambda t: t.id, reverse=True)
+            
             page_remapped = 0
             for transaction in transactions:
-                # Handle both dict and object formats for transaction ID
-                if isinstance(transaction, dict):
-                    transaction_id = transaction['id']
-                else:
-                    transaction_id = transaction.id
-                    
-                # Skip transactions we've already processed (based on ID)
-                if transaction_id <= progress["last_processed_transaction_id"]:
-                    continue
                 
                 progress["total_transactions_processed"] += 1
                 transactions_processed_this_run += 1
@@ -532,12 +521,17 @@ def main():
                     page_remapped += 1
                     transactions_remapped_this_run += 1
                 
-                # Update last processed transaction ID
-                progress["last_processed_transaction_id"] = max(
+                # Update last processed transaction ID for resume capability
+                if isinstance(transaction, dict):
+                    current_id = transaction['id']
+                else:
+                    current_id = transaction.id
+                progress["last_processed_transaction_id"] = min(
                     progress["last_processed_transaction_id"], 
-                    transaction_id
+                    current_id
                 )
-                
+                save_progress(progress)
+                            
                 # Test mode limit
                 if args.test_limit and transactions_processed_this_run >= args.test_limit:
                     print(f"\n🧪 TEST LIMIT REACHED: Processed {transactions_processed_this_run} transactions")
@@ -579,16 +573,16 @@ def main():
         
         # Show details of unmapped transactions
         if progress.get('unmapped_transactions'):
-            print(f"\n⚠️  Unmapped transactions (category not in mapping):")
-            for tx in progress['unmapped_transactions'][:5]:  # Show first 5
-                print(f"  - {tx['payee'][:40]}... | Category: {tx['category_title']} (ID: {tx['category_id']})")
+            print(f"\n⚠️  Unmapped transaction IDs (category not in mapping):")
+            unmapped_ids = progress['unmapped_transactions'][:5]  # Show first 5
+            print(f"  - Transaction IDs: {', '.join(map(str, unmapped_ids))}")
             if len(progress['unmapped_transactions']) > 5:
                 print(f"  ... and {len(progress['unmapped_transactions']) - 5} more")
         
         if progress.get('uncategorized_transactions'):
-            print(f"\n⚠️  Uncategorized transactions (no category assigned):")
-            for tx in progress['uncategorized_transactions'][:5]:  # Show first 5
-                print(f"  - {tx['payee'][:40]}... | Amount: {tx['amount']}")
+            print(f"\n⚠️  Uncategorized transaction IDs (no category assigned):")
+            uncategorized_ids = progress['uncategorized_transactions'][:5]  # Show first 5
+            print(f"  - Transaction IDs: {', '.join(map(str, uncategorized_ids))}")
             if len(progress['uncategorized_transactions']) > 5:
                 print(f"  ... and {len(progress['uncategorized_transactions']) - 5} more")
         

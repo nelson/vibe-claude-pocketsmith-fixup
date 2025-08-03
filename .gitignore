@@ -1,0 +1,5 @@
+.claude/
+.mypy_cache/
+.venv/
+recategorise_progress.json
+__pycache__/
