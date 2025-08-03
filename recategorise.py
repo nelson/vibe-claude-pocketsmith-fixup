@@ -7,13 +7,16 @@ using labels to retain granular information.
 
 Usage:
     export POCKETSMITH_API_KEY='your_api_key_here'
-    python recategorise.py
+    python recategorise.py [--test-limit N]  # Test mode with N transactions
+    python recategorise.py --cleanup         # Cleanup empty old categories
 """
 
 import os
 import sys
 import json
 import time
+import argparse
+import re
 from datetime import datetime
 from pocketsmith import PocketsmithClient
 
@@ -94,11 +97,15 @@ def load_progress():
         with open(PROGRESS_FILE, 'r') as f:
             return json.load(f)
     return {
-        "processed_categories": [],
+        "start_time": None,
+        "end_time": None,
+        "last_processed_page": 0,
+        "last_processed_transaction_id": 0,
         "processed_transactions": [],
         "created_categories": {},
-        "start_time": None,
-        "current_category": None
+        "total_transactions_processed": 0,
+        "total_transactions_remapped": 0,
+        "completed": False
     }
 
 
@@ -115,10 +122,12 @@ def get_or_create_category(client, user_id, category_name, progress):
     if category_name in progress["created_categories"]:
         return progress["created_categories"][category_name]
     
-    # Check if category already exists
+    # Check if category already exists (but only consider new categories)
+    # Assume category IDs > 24899097 are new categories created during recategorisation
     categories = client.categories.list_categories(user_id)
     for cat in categories:
-        if cat.title == category_name:
+        if cat.title == category_name and cat.id > 24899097:
+            print(f"Found existing new category: {category_name} (ID: {cat.id})")
             progress["created_categories"][category_name] = cat.id
             save_progress(progress)
             return cat.id
@@ -132,97 +141,146 @@ def get_or_create_category(client, user_id, category_name, progress):
     return category_id
 
 
-def process_category(client, user_id, old_category_id, mapping, progress):
-    """Process all transactions in a category"""
+def parse_link_header(link_header):
+    """Parse Link header to extract next/prev URLs"""
+    if not link_header:
+        return {}
+    
+    links = {}
+    for link in link_header.split(','):
+        link = link.strip()
+        if '; rel=' in link:
+            url_part, rel_part = link.split('; rel=', 1)
+            url = url_part.strip('<>')
+            rel = rel_part.strip('"')
+            links[rel] = url
+    return links
+
+
+def get_transactions_page(client, user_id, page=1, per_page=1000):
+    """Get a page of transactions using pagination"""
+    try:
+        # The list_transactions method might not support pagination parameters directly
+        # We'll need to use the underlying API client
+        response = client.api_client.call_api(
+            '/users/{id}/transactions',
+            'GET',
+            path_params={'id': user_id},
+            query_params={'page': page, 'per_page': per_page},
+            header_params={},
+            body=None,
+            post_params=[],
+            files={},
+            response_type='list[Transaction]',
+            auth_settings=['developers'],
+            async_req=False,
+            _return_http_data_only=False
+        )
+        
+        transactions = response[0]  # The actual data
+        headers = response[2]  # Response headers
+        link_header = headers.get('Link', '')
+        links = parse_link_header(link_header)
+        
+        return transactions, links
+        
+    except Exception as e:
+        print(f"Error fetching page {page}: {e}")
+        # Fallback to basic method without pagination
+        if page == 1:
+            transactions = client.transactions.list_transactions(user_id)
+            return transactions, {}
+        else:
+            return [], {}
+
+
+def process_transaction(client, user_id, transaction, progress):
+    """Process a single transaction for remapping"""
+    # Skip if already processed
+    if transaction.id in progress["processed_transactions"]:
+        return False, "already_processed"
+    
+    # Check if transaction needs remapping
+    if not transaction.category or transaction.category.id not in CATEGORY_MAPPING:
+        # Mark as processed but no remapping needed
+        progress["processed_transactions"].append(transaction.id)
+        return False, "no_remap_needed"
+    
+    old_category_id = transaction.category.id
+    mapping = CATEGORY_MAPPING[old_category_id]
     new_category_name = mapping["new_category"]
     label = mapping["label"]
     
-    print(f"\n=== Processing category {old_category_id} -> {new_category_name} ===")
+    try:
+        # Get or create new category
+        new_category_id = get_or_create_category(client, user_id, new_category_name, progress)
+        
+        # Prepare update data
+        update_data = {"category_id": new_category_id}
+        
+        # Add label if specified
+        if label:
+            current_labels = list(transaction.labels) if transaction.labels else []
+            if label not in current_labels:
+                current_labels.append(label)
+            update_data["labels"] = current_labels
+        
+        # Update transaction
+        print(f"  Remapping transaction {transaction.id}: {transaction.payee[:50]} | {transaction.category.title} -> {new_category_name}" + (f" +{label}" if label else ""))
+        client.transactions.update_transaction(transaction.id, **update_data)
+        
+        # Mark as processed
+        progress["processed_transactions"].append(transaction.id)
+        progress["total_transactions_remapped"] += 1
+        
+        # Rate limiting
+        time.sleep(0.1)
+        
+        return True, "remapped"
+        
+    except Exception as e:
+        print(f"  ERROR updating transaction {transaction.id}: {e}")
+        return False, f"error: {e}"
+
+
+def cleanup_old_categories(client, user_id):
+    """Delete all old categories after verifying they're empty"""
+    print("\n=== CLEANUP: Deleting old empty categories ===")
     
-    # Get or create new category
-    new_category_id = get_or_create_category(client, user_id, new_category_name, progress)
-    
-    # Load all transactions
-    print("Loading all transactions...")
+    # Get all current transactions to verify categories are empty
+    print("Loading all transactions to verify old categories are empty...")
     all_transactions = client.transactions.list_transactions(user_id)
     
-    # Filter transactions for this category
-    category_transactions = [
-        tx for tx in all_transactions 
-        if tx.category and tx.category.id == old_category_id
-    ]
-    
-    print(f"Found {len(category_transactions)} transactions in category {old_category_id}")
-    
-    # Process each transaction
-    processed_count = 0
-    for tx in category_transactions:
-        if tx.id in progress["processed_transactions"]:
-            print(f"  Skipping already processed transaction {tx.id}")
+    deleted_count = 0
+    for old_category_id in CATEGORY_MAPPING.keys():
+        # Check if any transactions still use this category
+        remaining_transactions = [
+            tx for tx in all_transactions 
+            if tx.category and tx.category.id == old_category_id
+        ]
+        
+        if remaining_transactions:
+            print(f"WARNING: Category {old_category_id} still has {len(remaining_transactions)} transactions - skipping deletion")
             continue
         
         try:
-            # Prepare update data
-            update_data = {"category_id": new_category_id}
-            
-            # Add label if specified
-            if label:
-                current_labels = list(tx.labels) if tx.labels else []
-                if label not in current_labels:
-                    current_labels.append(label)
-                update_data["labels"] = current_labels
-            
-            # Update transaction
-            print(f"  Updating transaction {tx.id}: {tx.payee[:50]}...")
-            client.transactions.update_transaction(tx.id, **update_data)
-            
-            # Mark as processed
-            progress["processed_transactions"].append(tx.id)
-            processed_count += 1
-            
-            # Save progress every 10 transactions
-            if processed_count % 10 == 0:
-                save_progress(progress)
-                print(f"    Progress saved: {processed_count}/{len(category_transactions)}")
-            
-            # Rate limiting - small delay between API calls
-            time.sleep(0.1)
-            
+            print(f"Deleting old category {old_category_id}...")
+            client.categories.delete_category(old_category_id)
+            deleted_count += 1
         except Exception as e:
-            print(f"  ERROR updating transaction {tx.id}: {e}")
-            # Continue processing other transactions
-            continue
+            print(f"ERROR deleting category {old_category_id}: {e}")
     
-    # Final progress save
-    save_progress(progress)
-    print(f"Processed {processed_count} transactions")
-    
-    # Verify no transactions remain in old category
-    print("Verifying category is empty...")
-    all_transactions = client.transactions.list_transactions(user_id)
-    remaining_transactions = [
-        tx for tx in all_transactions 
-        if tx.category and tx.category.id == old_category_id
-    ]
-    
-    if remaining_transactions:
-        print(f"WARNING: {len(remaining_transactions)} transactions still in old category!")
-        return False
-    
-    # Delete old category
-    print(f"Deleting old category {old_category_id}...")
-    try:
-        client.categories.delete_category(old_category_id)
-        progress["processed_categories"].append(old_category_id)
-        save_progress(progress)
-        print("Category deleted successfully")
-        return True
-    except Exception as e:
-        print(f"ERROR deleting category: {e}")
-        return False
+    print(f"Deleted {deleted_count}/{len(CATEGORY_MAPPING)} old categories")
+    return deleted_count
 
 
 def main():
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Recategorise PocketSmith transactions')
+    parser.add_argument('--test-limit', type=int, help='Test mode: limit processing to N transactions')
+    parser.add_argument('--cleanup', action='store_true', help='Cleanup mode: delete empty old categories')
+    args = parser.parse_args()
+    
     # Get API key
     api_key = os.getenv('POCKETSMITH_API_KEY')
     if not api_key:
@@ -237,48 +295,103 @@ def main():
         # Get user info
         user_info = client.users.get_me()
         user_id = user_info['id']
-        print(f"Processing categories for user: {user_info.get('email', 'Unknown')}")
+        print(f"Processing transactions for user: {user_info.get('email', 'Unknown')}")
+        
+        # Cleanup mode
+        if args.cleanup:
+            cleanup_old_categories(client, user_id)
+            return
         
         # Load progress
         progress = load_progress()
         if not progress["start_time"]:
             progress["start_time"] = datetime.now().isoformat()
         
-        print(f"\nProgress: {len(progress['processed_categories'])}/{len(CATEGORY_MAPPING)} categories completed")
-        print(f"Processed transactions: {len(progress['processed_transactions'])}")
+        print(f"\nProgress: Processed {progress['total_transactions_processed']} transactions")
+        print(f"Remapped: {progress['total_transactions_remapped']} transactions")
+        print(f"Last processed page: {progress['last_processed_page']}")
+        print(f"Created categories: {list(progress['created_categories'].keys())}")
         
-        # Process each category
-        for old_category_id, mapping in CATEGORY_MAPPING.items():
-            if old_category_id in progress["processed_categories"]:
-                print(f"Skipping already processed category {old_category_id}")
-                continue
+        if args.test_limit:
+            print(f"\n🧪 TEST MODE: Processing up to {args.test_limit} transactions")
+        
+        # Start pagination from where we left off
+        page = max(1, progress["last_processed_page"])
+        transactions_processed_this_run = 0
+        transactions_remapped_this_run = 0
+        
+        while True:
+            print(f"\nFetching page {page}...")
+            transactions, links = get_transactions_page(client, user_id, page, per_page=1000)
             
-            progress["current_category"] = old_category_id
-            save_progress(progress)
-            
-            success = process_category(client, user_id, old_category_id, mapping, progress)
-            if not success:
-                print(f"Failed to process category {old_category_id}. Stopping.")
+            if not transactions:
+                print("No more transactions found")
                 break
             
-            print(f"Category {old_category_id} completed successfully")
+            print(f"Processing {len(transactions)} transactions from page {page}")
+            
+            page_remapped = 0
+            for transaction in transactions:
+                # Skip transactions we've already processed (based on ID)
+                if transaction.id <= progress["last_processed_transaction_id"]:
+                    continue
+                
+                progress["total_transactions_processed"] += 1
+                transactions_processed_this_run += 1
+                
+                # Process the transaction
+                remapped, status = process_transaction(client, user_id, transaction, progress)
+                if remapped:
+                    page_remapped += 1
+                    transactions_remapped_this_run += 1
+                
+                # Update last processed transaction ID
+                progress["last_processed_transaction_id"] = max(
+                    progress["last_processed_transaction_id"], 
+                    transaction.id
+                )
+                
+                # Test mode limit
+                if args.test_limit and transactions_processed_this_run >= args.test_limit:
+                    print(f"\n🧪 TEST LIMIT REACHED: Processed {transactions_processed_this_run} transactions")
+                    break
+            
+            # Update progress
+            progress["last_processed_page"] = page
+            save_progress(progress)
+            
+            print(f"Page {page} complete: {page_remapped} transactions remapped")
+            
+            # Test mode limit reached
+            if args.test_limit and transactions_processed_this_run >= args.test_limit:
+                break
+            
+            # Check if there's a next page
+            if 'next' not in links:
+                print("Reached last page of transactions")
+                break
+            
+            page += 1
+        
+        # Mark as completed if not in test mode
+        if not args.test_limit:
+            progress["completed"] = True
+            progress["end_time"] = datetime.now().isoformat()
+        
+        save_progress(progress)
         
         # Final summary
-        if len(progress["processed_categories"]) == len(CATEGORY_MAPPING):
-            print("\n🎉 ALL CATEGORIES PROCESSED SUCCESSFULLY!")
-            print(f"Total transactions processed: {len(progress['processed_transactions'])}")
-            print(f"Created categories: {list(progress['created_categories'].keys())}")
-            
-            # Verify final state
-            print("\nVerifying final category count...")
-            categories = client.categories.list_categories(user_id)
-            print(f"Total categories remaining: {len(categories)}")
-            for cat in categories:
-                print(f"  - {cat.title} (ID: {cat.id})")
-        else:
-            print(f"\nProcess incomplete: {len(progress['processed_categories'])}/{len(CATEGORY_MAPPING)} categories")
-            print("Run the script again to continue from where it left off")
-    
+        print(f"\n{'🧪 TEST MODE ' if args.test_limit else '🎉 '}PROCESSING COMPLETE!")
+        print(f"Transactions processed this run: {transactions_processed_this_run}")
+        print(f"Transactions remapped this run: {transactions_remapped_this_run}")
+        print(f"Total transactions processed: {progress['total_transactions_processed']}")
+        print(f"Total transactions remapped: {progress['total_transactions_remapped']}")
+        print(f"Created categories: {list(progress['created_categories'].keys())}")
+        
+        if not args.test_limit and progress["completed"]:
+            print("\n✅ All transactions have been processed!")
+            print("To delete old empty categories, run: python recategorise.py --cleanup")
+        
     except Exception as e:
         print(f"Error: {e}")
         import traceback
