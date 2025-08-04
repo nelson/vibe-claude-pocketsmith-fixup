@@ -227,17 +227,25 @@ def cleanup_old_categories(client, user_id, dry_run=False):
             })
             continue
         
-        # Check if this is an old category we want to clean up
-        if category_id in CATEGORY_MAPPING:
-            if usage_count == 0:
-                snapshot["deletion_candidates"].append({
-                    "id": category_id,
-                    "title": category_title,
-                    "transaction_count": usage_count,
-                    "mapped_to": CATEGORY_MAPPING[category_id]["new_category"]
-                })
+        # Check if this is an empty category that should be deleted
+        # Delete ANY empty category that doesn't have underscore prefix (not just ones in CATEGORY_MAPPING)
+        if usage_count == 0:
+            # Determine what it was mapped to (if it was in our mapping)
+            mapped_to = None
+            if category_id in CATEGORY_MAPPING:
+                mapped_to = CATEGORY_MAPPING[category_id]["new_category"]
             else:
-                print(f"WARNING: Old category '{category_title}' (ID: {category_id}) still has {usage_count} transactions")
+                mapped_to = "Unknown (not in mapping)"
+            
+            snapshot["deletion_candidates"].append({
+                "id": category_id,
+                "title": category_title,
+                "transaction_count": usage_count,
+                "mapped_to": mapped_to
+            })
+        elif category_id in CATEGORY_MAPPING:
+            # Only warn about categories that should have been mapped but still have transactions
+            print(f"WARNING: Old category '{category_title}' (ID: {category_id}) still has {usage_count} transactions")
     
     # Add snapshot to progress
     progress["snapshots"].append(snapshot)

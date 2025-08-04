@@ -1,5 +1,8 @@
 .claude/
 .mypy_cache/
 .venv/
-recategorise_progress.json
 __pycache__/
+recategorise_progress.json
+debug_unmapped_transactions.json
+recategorise_progress.json.backup
+recategorise_progress.json.full
