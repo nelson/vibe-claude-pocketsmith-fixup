@@ -89,41 +89,64 @@ CATEGORY_MAPPING = {
     7312546: {"new_category": "Dining", "label": "restaurants"},  # Coffee (child of Eating out)
     7312547: {"new_category": "Dining", "label": "takeout"},  # Fast food (child of Eating out)
     7312548: {"new_category": "Dining", "label": "restaurants"},  # Restaurants (child of Eating out)
-    7312555: {"new_category": "Giving", "label": "charity"},  # Charity (child of Giving)
-    7312556: {"new_category": "Giving", "label": "church"},  # Church (child of Giving)
-    7312557: {"new_category": "Income", "label": "tax"},  # Tax Refund (child of Income)
-    7312558: {"new_category": "Giving", "label": "missions"},  # Missionary (child of Giving)
-    7312559: {"new_category": "Giving", "label": "gifts"},  # Gift (child of Giving)
-    7312562: {"new_category": "Household", "label": "production"},  # Appliances (child of Household)
-    7312563: {"new_category": "Household", "label": "production"},  # Electronics (child of Household)
-    7312564: {"new_category": "Household", "label": "pets"},  # Pet Care (child of Household)
-    7312565: {"new_category": "Household", "label": "production"},  # Supplies (child of Household)
-    7312566: {"new_category": "Household", "label": "production"},  # Tools (child of Household)
-    7312569: {"new_category": "Income", "label": "salary"},  # Salary (child of Income)
-    7312570: {"new_category": "Income", "label": "investment"},  # Investment (child of Income)
-    7312571: {"new_category": "Income", "label": "superannuation"},  # Superannuation (child of Income)
+    7312555: {"new_category": "Giving", "label": "church"},  # Church (child of Giving)
+    7312556: {"new_category": "Giving", "label": "missions"},  # Missionary (child of Giving)
+    7312557: {"new_category": "Groceries", "label": "supermarkets"},  # Supermarket (child of Groceries)
+    7312558: {"new_category": "Groceries", "label": "markets"},  # Asian stores (child of Groceries)
+    7312559: {"new_category": "Groceries", "label": "markets"},  # Markets (child of Groceries)
+    7312562: {"new_category": "Household", "label": "personal-care"},  # Self-care (child of Household)
+    7312563: {"new_category": "Household", "label": "production"},  # Furniture (child of Household)
+    7312564: {"new_category": "Household", "label": "maintenance"},  # Gardening (child of Household)
+    7312565: {"new_category": "Household", "label": "maintenance"},  # Maintenance (child of Household)
+    7312566: {"new_category": "Household", "label": "personal-care"},  # Occasions (child of Household)
+    7312567: {"new_category": "Household", "label": "production"},  # Tools (child of Household)
+    7666458: {"new_category": "Household", "label": "production"},  # Supplies (child of Household)
+    7341096: {"new_category": "Income", "label": None},  # Expense Reimbursement (child of Income)
+    7312569: {"new_category": "Bills", "label": "medical"},  # Health (child of Insurance)
+    7312570: {"new_category": "Bills", "label": "insurance"},  # Home (child of Insurance)
+    7312571: {"new_category": "Transport", "label": "insurance"},  # Motor (child of Insurance)
+    7312573: {"new_category": "Bills", "label": "medical"},  # Dental (child of Medical)
+    7280205: {"new_category": "Household", "label": "cash"},  # Cash spend (child of Household)
     7312574: {"new_category": "Bills", "label": "medical"},  # Health (child of Medical)
     7312575: {"new_category": "Bills", "label": "medical"},  # Medicine (child of Medical)
     7312576: {"new_category": "Bills", "label": "medical"},  # NDIS (child of Medical)
     7312578: {"new_category": "Mortgage", "label": None},  # Interest (child of Mortgage)
     7312579: {"new_category": "Mortgage", "label": "loans"},  # Loan Repayment (child of Mortgage)
-    7312581: {"new_category": "Shopping", "label": "hobbies"},  # Entertainment (child of Recreation)
-    7312582: {"new_category": "Shopping", "label": "fashion"},  # Fashion (child of Recreation)
-    7312583: {"new_category": "Shopping", "label": "hobbies"},  # Games (child of Recreation)
-    7312584: {"new_category": "Shopping", "label": "hobbies"},  # Music (child of Recreation)
-    7312585: {"new_category": "Shopping", "label": "hobbies"},  # Sports (child of Recreation)
-    7312586: {"new_category": "Shopping", "label": "hobbies"},  # Toys/Hobbies (child of Recreation)
-    7312588: {"new_category": "Transfer", "label": None},  # Inter-account (child of Transfer)
-    7312589: {"new_category": "Transfer", "label": None},  # Credit Card Payments (child of Transfer)
-    7312591: {"new_category": "Transport", "label": "petrol"},  # Petrol (child of Transport)
-    7312592: {"new_category": "Transport", "label": "public-transport"},  # Public transport (child of Transport)
-    7312593: {"new_category": "Transport", "label": "car"},  # Taxi (child of Transport)
-    7312594: {"new_category": "Transport", "label": "tolls"},  # Tolls (child of Transport)
-    7312595: {"new_category": "Transport", "label": "parking"},  # Parking (child of Transport)
+    7312581: {"new_category": "Dining", "label": "restaurants"},  # Alcohol (child of Recreation)
+    7312582: {"new_category": "Shopping", "label": "hobbies"},  # Books (child of Recreation) 
+    7312583: {"new_category": "Shopping", "label": "hobbies"},  # Gadgets (child of Recreation)
+    7312584: {"new_category": "Holidays", "label": None},  # Holidays (child of Recreation)
+    7312585: {"new_category": "Holidays", "label": "hotels"},  # Hotels (child of Recreation)
+    7312586: {"new_category": "Shopping", "label": "health"},  # Sports (child of Recreation)
+    7312588: {"new_category": "Transfer", "label": None},  # Loan payments (child of Transfer)
+    7312589: {"new_category": "Transfer", "label": None},  # Inter-account (child of Transfer)
+    7312591: {"new_category": "Transport", "label": "fines"},  # Fines (child of Transport)
+    7312592: {"new_category": "Holidays", "label": "flights"},  # Flights (child of Transport)
+    7312593: {"new_category": "Transport", "label": "parking"},  # Parking (child of Transport)
+    7312594: {"new_category": "Transport", "label": "petrol"},  # Petrol (child of Transport)
+    7312595: {"new_category": "Transport", "label": "public-transport"},  # Public transport (child of Transport)
+    7312597: {"new_category": "Transport", "label": "car"},  # Registration (child of Transport)
+    7312598: {"new_category": "Transport", "label": "car"},  # Servicing (child of Transport)
+    7707848: {"new_category": "Transport", "label": "car"},  # Taxi (child of Transport)
+    7312596: {"new_category": "Transport", "label": "tolls"},  # Tolls (child of Transport)
     7280189: {"new_category": "Groceries", "label": "supermarkets"},  # Supermarket (child of Groceries)
     7280190: {"new_category": "Groceries", "label": "markets"},  # Markets (child of Groceries)
     7280191: {"new_category": "Groceries", "label": "markets"},  # Asian stores (child of Groceries)
     7280192: {"new_category": "Dining", "label": "restaurants"},  # Bubble tea (child of Groceries - but should be dining)
+    
+    # Additional missing categories found in transaction analysis
+    7314164: {"new_category": "Shopping", "label": "hobbies"},  # Entertainment -> Shopping
+    7312545: {"new_category": "Dining", "label": "restaurants"},  # Bubble tea -> Dining  
+    7280182: {"new_category": "Transfer", "label": None},  # Credit Card Payments -> Transfer
+    7314704: {"new_category": "Income", "label": "salary"},  # Salary -> Income
+    7314705: {"new_category": "Income", "label": "superannuation"},  # Superannuation -> Income
+    7312600: {"new_category": "Shopping", "label": "hobbies"},  # Games -> Shopping
+    7314702: {"new_category": "Income", "label": "investment"},  # Investment -> Income
+    7312550: {"new_category": "Education", "label": "childcare"},  # Childcare -> Education
+    7312553: {"new_category": "Education", "label": "classes"},  # Tutoring -> Education
+    7314701: {"new_category": "Income", "label": "tax"},  # Tax -> Income
+    7280222: {"new_category": "Giving", "label": "gifts"},  # Gifts -> Giving
+    7312552: {"new_category": "Education", "label": "classes"},  # School -> Education
 }
 
 

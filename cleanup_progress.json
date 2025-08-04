@@ -1,0 +1,2977 @@
+{
+  "snapshots": [
+    {
+      "timestamp": "2025-08-04T11:57:13.117016",
+      "total_transactions_analyzed": 14146,
+      "categories_in_use": 60,
+      "category_usage": {
+        "7312266": {
+          "id": 7312266,
+          "title": "Bills",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312544": {
+          "id": 7312544,
+          "title": "Eating out",
+          "transaction_count": 53,
+          "is_transfer": false
+        },
+        "7312549": {
+          "id": 7312549,
+          "title": "Education",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312554": {
+          "id": 7312554,
+          "title": "Giving",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7280188": {
+          "id": 7280188,
+          "title": "Groceries",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7312560": {
+          "id": 7312560,
+          "title": "Household",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312568": {
+          "id": 7312568,
+          "title": "Income",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7280166": {
+          "id": 7280166,
+          "title": "Insurance",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312572": {
+          "id": 7312572,
+          "title": "Medical",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7312577": {
+          "id": 7312577,
+          "title": "Mortgage",
+          "transaction_count": 10,
+          "is_transfer": false
+        },
+        "7280197": {
+          "id": 7280197,
+          "title": "Online Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312580": {
+          "id": 7312580,
+          "title": "Recreation",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280165": {
+          "id": 7280165,
+          "title": "Service Charges/Fees",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312587": {
+          "id": 7312587,
+          "title": "Transfer",
+          "transaction_count": 0,
+          "is_transfer": true
+        },
+        "7312590": {
+          "id": 7312590,
+          "title": "Transport",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7794538": {
+          "id": 7794538,
+          "title": "Clothing/Shoes",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7858322": {
+          "id": 7858322,
+          "title": "Refunds/Adjustments",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7871181": {
+          "id": 7871181,
+          "title": "Healthcare/Medical",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7896863": {
+          "id": 7896863,
+          "title": "Home Maintenance",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7949656": {
+          "id": 7949656,
+          "title": "Transfers",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "10447596": {
+          "id": 10447596,
+          "title": "Shopping",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "10447599": {
+          "id": 10447599,
+          "title": "Provider Fee",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049847": {
+          "id": 11049847,
+          "title": "Bank Fees",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049943": {
+          "id": 11049943,
+          "title": "Fuel",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049949": {
+          "id": 11049949,
+          "title": "Alcohol & Bars",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11110102": {
+          "id": 11110102,
+          "title": "Professional Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11125216": {
+          "id": 11125216,
+          "title": "Government Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11176996": {
+          "id": 11176996,
+          "title": "Automotive",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11193520": {
+          "id": 11193520,
+          "title": "Computing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11262367": {
+          "id": 11262367,
+          "title": "Housing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11421853": {
+          "id": 11421853,
+          "title": "Cash Withdrawal",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11721802": {
+          "id": 11721802,
+          "title": "Postage",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "12122497": {
+          "id": 12122497,
+          "title": "Jewellery",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "13340188": {
+          "id": 13340188,
+          "title": "Child Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17005819": {
+          "id": 17005819,
+          "title": "Business Miscellaneous",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17291206": {
+          "id": 17291206,
+          "title": "Printing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17298658": {
+          "id": 17298658,
+          "title": "Restaurants/Dining",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "17298661": {
+          "id": 17298661,
+          "title": "Travel",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "17310994": {
+          "id": 17310994,
+          "title": "Electronics",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17316631": {
+          "id": 17316631,
+          "title": "Healthcare / Medical",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17323252": {
+          "id": 17323252,
+          "title": "Gasoline/Fuel",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17328958": {
+          "id": 17328958,
+          "title": "Rentals",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17343292": {
+          "id": 17343292,
+          "title": "Phone",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17417035": {
+          "id": 17417035,
+          "title": "Charitable Giving",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17492305": {
+          "id": 17492305,
+          "title": "Office Supplies",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17518609": {
+          "id": 17518609,
+          "title": "Utilities",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17555794": {
+          "id": 17555794,
+          "title": "Personal Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17571725": {
+          "id": 17571725,
+          "title": "Automotive Expenses",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17594012": {
+          "id": 17594012,
+          "title": "Clothing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17687411": {
+          "id": 17687411,
+          "title": "Rent",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17883938": {
+          "id": 17883938,
+          "title": "Child/Dependent Expenses",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17887484": {
+          "id": 17887484,
+          "title": "Taxes",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584417": {
+          "id": 19584417,
+          "title": "Home Improvement",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584420": {
+          "id": 19584420,
+          "title": "Telephone Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584423": {
+          "id": 19584423,
+          "title": "Dues and Subscriptions",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584426": {
+          "id": 19584426,
+          "title": "Pets/Pet Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584429": {
+          "id": 19584429,
+          "title": "Cable/Satellite Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584432": {
+          "id": 19584432,
+          "title": "Securities Trades",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584435": {
+          "id": 19584435,
+          "title": "Retirement Contributions",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19965585": {
+          "id": 19965585,
+          "title": "Hobbies",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "20895553": {
+          "id": 20895553,
+          "title": "Postage and Shipping",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24261500": {
+          "id": 24261500,
+          "title": "Power",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24899097": {
+          "id": 24899097,
+          "title": "Loan Repayment",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24918120": {
+          "id": 24918120,
+          "title": "_Transfer",
+          "transaction_count": 2195,
+          "is_transfer": false
+        },
+        "24918504": {
+          "id": 24918504,
+          "title": "_Dining",
+          "transaction_count": 4024,
+          "is_transfer": false
+        },
+        "24924387": {
+          "id": 24924387,
+          "title": "_Income",
+          "transaction_count": 492,
+          "is_transfer": false
+        },
+        "24924438": {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "transaction_count": 209,
+          "is_transfer": false
+        },
+        "24924558": {
+          "id": 24924558,
+          "title": "_Bills",
+          "transaction_count": 1325,
+          "is_transfer": false
+        },
+        "24924573": {
+          "id": 24924573,
+          "title": "_Education",
+          "transaction_count": 235,
+          "is_transfer": false
+        },
+        "24924576": {
+          "id": 24924576,
+          "title": "_Groceries",
+          "transaction_count": 1428,
+          "is_transfer": false
+        },
+        "24924579": {
+          "id": 24924579,
+          "title": "_Transport",
+          "transaction_count": 1670,
+          "is_transfer": false
+        },
+        "24924582": {
+          "id": 24924582,
+          "title": "_Giving",
+          "transaction_count": 375,
+          "is_transfer": false
+        },
+        "24924585": {
+          "id": 24924585,
+          "title": "_Household",
+          "transaction_count": 1019,
+          "is_transfer": false
+        },
+        "24924594": {
+          "id": 24924594,
+          "title": "_Shopping",
+          "transaction_count": 787,
+          "is_transfer": false
+        },
+        "24924627": {
+          "id": 24924627,
+          "title": "_Holidays",
+          "transaction_count": 118,
+          "is_transfer": false
+        },
+        "7314164": {
+          "id": 7314164,
+          "title": "Entertainment",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312545": {
+          "id": 7312545,
+          "title": "Bubble tea",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7280182": {
+          "id": 7280182,
+          "title": "Credit Card Payments",
+          "transaction_count": 3,
+          "is_transfer": true
+        },
+        "7312589": {
+          "id": 7312589,
+          "title": "Inter-account",
+          "transaction_count": 37,
+          "is_transfer": true
+        },
+        "7312556": {
+          "id": 7312556,
+          "title": "Missionary",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312558": {
+          "id": 7312558,
+          "title": "Asian stores",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312547": {
+          "id": 7312547,
+          "title": "Fast food",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312595": {
+          "id": 7312595,
+          "title": "Public transport",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7314704": {
+          "id": 7314704,
+          "title": "Salary",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312588": {
+          "id": 7312588,
+          "title": "Loan payments",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312272": {
+          "id": 7312272,
+          "title": "Mobile",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312562": {
+          "id": 7312562,
+          "title": "Self-care",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312600": {
+          "id": 7312600,
+          "title": "Games",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312593": {
+          "id": 7312593,
+          "title": "Parking",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312569": {
+          "id": 7312569,
+          "title": "Health",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312546": {
+          "id": 7312546,
+          "title": "Coffee",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7314701": {
+          "id": 7314701,
+          "title": "Tax",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312548": {
+          "id": 7312548,
+          "title": "Paying for others",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312579": {
+          "id": 7312579,
+          "title": "Interest",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312271": {
+          "id": 7312271,
+          "title": "Media",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312555": {
+          "id": 7312555,
+          "title": "Church",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7314702": {
+          "id": 7314702,
+          "title": "Investment",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7314705": {
+          "id": 7314705,
+          "title": "Superannuation",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312550": {
+          "id": 7312550,
+          "title": "Childcare",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7707848": {
+          "id": 7707848,
+          "title": "Taxi",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312594": {
+          "id": 7312594,
+          "title": "Petrol",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312575": {
+          "id": 7312575,
+          "title": "NDIS",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280222": {
+          "id": 7280222,
+          "title": "Gifts",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312584": {
+          "id": 7312584,
+          "title": "Holidays",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312553": {
+          "id": 7312553,
+          "title": "Tutoring",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312270": {
+          "id": 7312270,
+          "title": "Internet",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312552": {
+          "id": 7312552,
+          "title": "School",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312581": {
+          "id": 7312581,
+          "title": "Alcohol",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312571": {
+          "id": 7312571,
+          "title": "Motor",
+          "transaction_count": 1,
+          "is_transfer": false
+        }
+      },
+      "deletion_candidates": [
+        {
+          "id": 7312266,
+          "title": "Bills",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7280197,
+          "title": "Online Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312587,
+          "title": "Transfer",
+          "transaction_count": 0,
+          "mapped_to": "Transfer"
+        },
+        {
+          "id": 7312590,
+          "title": "Transport",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 7794538,
+          "title": "Clothing/Shoes",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 7858322,
+          "title": "Refunds/Adjustments",
+          "transaction_count": 0,
+          "mapped_to": "Transfer"
+        },
+        {
+          "id": 7871181,
+          "title": "Healthcare/Medical",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7896863,
+          "title": "Home Maintenance",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 10447596,
+          "title": "Shopping",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 10447599,
+          "title": "Provider Fee",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11049847,
+          "title": "Bank Fees",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11049943,
+          "title": "Fuel",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 11049949,
+          "title": "Alcohol & Bars",
+          "transaction_count": 0,
+          "mapped_to": "Dining"
+        },
+        {
+          "id": 11110102,
+          "title": "Professional Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11125216,
+          "title": "Government Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11176996,
+          "title": "Automotive",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 11193520,
+          "title": "Computing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 11262367,
+          "title": "Housing",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 11421853,
+          "title": "Cash Withdrawal",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 11721802,
+          "title": "Postage",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 12122497,
+          "title": "Jewellery",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 13340188,
+          "title": "Child Care",
+          "transaction_count": 0,
+          "mapped_to": "Education"
+        },
+        {
+          "id": 17005819,
+          "title": "Business Miscellaneous",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17291206,
+          "title": "Printing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17310994,
+          "title": "Electronics",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17316631,
+          "title": "Healthcare / Medical",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17323252,
+          "title": "Gasoline/Fuel",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 17328958,
+          "title": "Rentals",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 17343292,
+          "title": "Phone",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17417035,
+          "title": "Charitable Giving",
+          "transaction_count": 0,
+          "mapped_to": "Giving"
+        },
+        {
+          "id": 17492305,
+          "title": "Office Supplies",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17518609,
+          "title": "Utilities",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17555794,
+          "title": "Personal Care",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 17571725,
+          "title": "Automotive Expenses",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 17594012,
+          "title": "Clothing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17687411,
+          "title": "Rent",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 17883938,
+          "title": "Child/Dependent Expenses",
+          "transaction_count": 0,
+          "mapped_to": "Education"
+        },
+        {
+          "id": 17887484,
+          "title": "Taxes",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19584417,
+          "title": "Home Improvement",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 19584420,
+          "title": "Telephone Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584423,
+          "title": "Dues and Subscriptions",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584426,
+          "title": "Pets/Pet Care",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 19584429,
+          "title": "Cable/Satellite Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584432,
+          "title": "Securities Trades",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19584435,
+          "title": "Retirement Contributions",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19965585,
+          "title": "Hobbies",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 20895553,
+          "title": "Postage and Shipping",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 24261500,
+          "title": "Power",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 24899097,
+          "title": "Loan Repayment",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        }
+      ],
+      "protected_categories": [
+        {
+          "id": 24918120,
+          "title": "_Transfer",
+          "reason": "underscore_prefix",
+          "transaction_count": 2195
+        },
+        {
+          "id": 24918504,
+          "title": "_Dining",
+          "reason": "underscore_prefix",
+          "transaction_count": 4024
+        },
+        {
+          "id": 24924387,
+          "title": "_Income",
+          "reason": "underscore_prefix",
+          "transaction_count": 492
+        },
+        {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "reason": "underscore_prefix",
+          "transaction_count": 209
+        },
+        {
+          "id": 24924558,
+          "title": "_Bills",
+          "reason": "underscore_prefix",
+          "transaction_count": 1325
+        },
+        {
+          "id": 24924573,
+          "title": "_Education",
+          "reason": "underscore_prefix",
+          "transaction_count": 235
+        },
+        {
+          "id": 24924576,
+          "title": "_Groceries",
+          "reason": "underscore_prefix",
+          "transaction_count": 1428
+        },
+        {
+          "id": 24924579,
+          "title": "_Transport",
+          "reason": "underscore_prefix",
+          "transaction_count": 1670
+        },
+        {
+          "id": 24924582,
+          "title": "_Giving",
+          "reason": "underscore_prefix",
+          "transaction_count": 375
+        },
+        {
+          "id": 24924585,
+          "title": "_Household",
+          "reason": "underscore_prefix",
+          "transaction_count": 1019
+        },
+        {
+          "id": 24924594,
+          "title": "_Shopping",
+          "reason": "underscore_prefix",
+          "transaction_count": 787
+        },
+        {
+          "id": 24924627,
+          "title": "_Holidays",
+          "reason": "underscore_prefix",
+          "transaction_count": 118
+        }
+      ],
+      "deletions_performed": 0,
+      "deletion_errors": [],
+      "dry_run": true
+    },
+    {
+      "timestamp": "2025-08-04T11:58:59.547398",
+      "total_transactions_analyzed": 14146,
+      "categories_in_use": 60,
+      "category_usage": {
+        "7312266": {
+          "id": 7312266,
+          "title": "Bills",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312544": {
+          "id": 7312544,
+          "title": "Eating out",
+          "transaction_count": 53,
+          "is_transfer": false
+        },
+        "7312549": {
+          "id": 7312549,
+          "title": "Education",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312554": {
+          "id": 7312554,
+          "title": "Giving",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7280188": {
+          "id": 7280188,
+          "title": "Groceries",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7312560": {
+          "id": 7312560,
+          "title": "Household",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312568": {
+          "id": 7312568,
+          "title": "Income",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7280166": {
+          "id": 7280166,
+          "title": "Insurance",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312572": {
+          "id": 7312572,
+          "title": "Medical",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7312577": {
+          "id": 7312577,
+          "title": "Mortgage",
+          "transaction_count": 10,
+          "is_transfer": false
+        },
+        "7280197": {
+          "id": 7280197,
+          "title": "Online Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312580": {
+          "id": 7312580,
+          "title": "Recreation",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280165": {
+          "id": 7280165,
+          "title": "Service Charges/Fees",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312587": {
+          "id": 7312587,
+          "title": "Transfer",
+          "transaction_count": 0,
+          "is_transfer": true
+        },
+        "7312590": {
+          "id": 7312590,
+          "title": "Transport",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7794538": {
+          "id": 7794538,
+          "title": "Clothing/Shoes",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7858322": {
+          "id": 7858322,
+          "title": "Refunds/Adjustments",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7871181": {
+          "id": 7871181,
+          "title": "Healthcare/Medical",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7896863": {
+          "id": 7896863,
+          "title": "Home Maintenance",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7949656": {
+          "id": 7949656,
+          "title": "Transfers",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "10447596": {
+          "id": 10447596,
+          "title": "Shopping",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "10447599": {
+          "id": 10447599,
+          "title": "Provider Fee",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049847": {
+          "id": 11049847,
+          "title": "Bank Fees",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049943": {
+          "id": 11049943,
+          "title": "Fuel",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11049949": {
+          "id": 11049949,
+          "title": "Alcohol & Bars",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11110102": {
+          "id": 11110102,
+          "title": "Professional Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11125216": {
+          "id": 11125216,
+          "title": "Government Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11176996": {
+          "id": 11176996,
+          "title": "Automotive",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11193520": {
+          "id": 11193520,
+          "title": "Computing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11262367": {
+          "id": 11262367,
+          "title": "Housing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11421853": {
+          "id": 11421853,
+          "title": "Cash Withdrawal",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "11721802": {
+          "id": 11721802,
+          "title": "Postage",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "12122497": {
+          "id": 12122497,
+          "title": "Jewellery",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "13340188": {
+          "id": 13340188,
+          "title": "Child Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17005819": {
+          "id": 17005819,
+          "title": "Business Miscellaneous",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17291206": {
+          "id": 17291206,
+          "title": "Printing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17298658": {
+          "id": 17298658,
+          "title": "Restaurants/Dining",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "17298661": {
+          "id": 17298661,
+          "title": "Travel",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "17310994": {
+          "id": 17310994,
+          "title": "Electronics",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17316631": {
+          "id": 17316631,
+          "title": "Healthcare / Medical",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17323252": {
+          "id": 17323252,
+          "title": "Gasoline/Fuel",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17328958": {
+          "id": 17328958,
+          "title": "Rentals",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17343292": {
+          "id": 17343292,
+          "title": "Phone",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17417035": {
+          "id": 17417035,
+          "title": "Charitable Giving",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17492305": {
+          "id": 17492305,
+          "title": "Office Supplies",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17518609": {
+          "id": 17518609,
+          "title": "Utilities",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17555794": {
+          "id": 17555794,
+          "title": "Personal Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17571725": {
+          "id": 17571725,
+          "title": "Automotive Expenses",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17594012": {
+          "id": 17594012,
+          "title": "Clothing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17687411": {
+          "id": 17687411,
+          "title": "Rent",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17883938": {
+          "id": 17883938,
+          "title": "Child/Dependent Expenses",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "17887484": {
+          "id": 17887484,
+          "title": "Taxes",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584417": {
+          "id": 19584417,
+          "title": "Home Improvement",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584420": {
+          "id": 19584420,
+          "title": "Telephone Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584423": {
+          "id": 19584423,
+          "title": "Dues and Subscriptions",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584426": {
+          "id": 19584426,
+          "title": "Pets/Pet Care",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584429": {
+          "id": 19584429,
+          "title": "Cable/Satellite Services",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584432": {
+          "id": 19584432,
+          "title": "Securities Trades",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19584435": {
+          "id": 19584435,
+          "title": "Retirement Contributions",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "19965585": {
+          "id": 19965585,
+          "title": "Hobbies",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "20895553": {
+          "id": 20895553,
+          "title": "Postage and Shipping",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24261500": {
+          "id": 24261500,
+          "title": "Power",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24899097": {
+          "id": 24899097,
+          "title": "Loan Repayment",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "24918120": {
+          "id": 24918120,
+          "title": "_Transfer",
+          "transaction_count": 2195,
+          "is_transfer": false
+        },
+        "24918504": {
+          "id": 24918504,
+          "title": "_Dining",
+          "transaction_count": 4024,
+          "is_transfer": false
+        },
+        "24924387": {
+          "id": 24924387,
+          "title": "_Income",
+          "transaction_count": 492,
+          "is_transfer": false
+        },
+        "24924438": {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "transaction_count": 209,
+          "is_transfer": false
+        },
+        "24924558": {
+          "id": 24924558,
+          "title": "_Bills",
+          "transaction_count": 1325,
+          "is_transfer": false
+        },
+        "24924573": {
+          "id": 24924573,
+          "title": "_Education",
+          "transaction_count": 235,
+          "is_transfer": false
+        },
+        "24924576": {
+          "id": 24924576,
+          "title": "_Groceries",
+          "transaction_count": 1428,
+          "is_transfer": false
+        },
+        "24924579": {
+          "id": 24924579,
+          "title": "_Transport",
+          "transaction_count": 1670,
+          "is_transfer": false
+        },
+        "24924582": {
+          "id": 24924582,
+          "title": "_Giving",
+          "transaction_count": 375,
+          "is_transfer": false
+        },
+        "24924585": {
+          "id": 24924585,
+          "title": "_Household",
+          "transaction_count": 1019,
+          "is_transfer": false
+        },
+        "24924594": {
+          "id": 24924594,
+          "title": "_Shopping",
+          "transaction_count": 787,
+          "is_transfer": false
+        },
+        "24924627": {
+          "id": 24924627,
+          "title": "_Holidays",
+          "transaction_count": 118,
+          "is_transfer": false
+        },
+        "7314164": {
+          "id": 7314164,
+          "title": "Entertainment",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312545": {
+          "id": 7312545,
+          "title": "Bubble tea",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7280182": {
+          "id": 7280182,
+          "title": "Credit Card Payments",
+          "transaction_count": 3,
+          "is_transfer": true
+        },
+        "7312589": {
+          "id": 7312589,
+          "title": "Inter-account",
+          "transaction_count": 37,
+          "is_transfer": true
+        },
+        "7312556": {
+          "id": 7312556,
+          "title": "Missionary",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312558": {
+          "id": 7312558,
+          "title": "Asian stores",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312547": {
+          "id": 7312547,
+          "title": "Fast food",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312595": {
+          "id": 7312595,
+          "title": "Public transport",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7314704": {
+          "id": 7314704,
+          "title": "Salary",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312588": {
+          "id": 7312588,
+          "title": "Loan payments",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312272": {
+          "id": 7312272,
+          "title": "Mobile",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312562": {
+          "id": 7312562,
+          "title": "Self-care",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312600": {
+          "id": 7312600,
+          "title": "Games",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312593": {
+          "id": 7312593,
+          "title": "Parking",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312569": {
+          "id": 7312569,
+          "title": "Health",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312546": {
+          "id": 7312546,
+          "title": "Coffee",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7314701": {
+          "id": 7314701,
+          "title": "Tax",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312548": {
+          "id": 7312548,
+          "title": "Paying for others",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312579": {
+          "id": 7312579,
+          "title": "Interest",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312271": {
+          "id": 7312271,
+          "title": "Media",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312555": {
+          "id": 7312555,
+          "title": "Church",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7314702": {
+          "id": 7314702,
+          "title": "Investment",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7314705": {
+          "id": 7314705,
+          "title": "Superannuation",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312550": {
+          "id": 7312550,
+          "title": "Childcare",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7707848": {
+          "id": 7707848,
+          "title": "Taxi",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312594": {
+          "id": 7312594,
+          "title": "Petrol",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312575": {
+          "id": 7312575,
+          "title": "NDIS",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280222": {
+          "id": 7280222,
+          "title": "Gifts",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312584": {
+          "id": 7312584,
+          "title": "Holidays",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312553": {
+          "id": 7312553,
+          "title": "Tutoring",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312270": {
+          "id": 7312270,
+          "title": "Internet",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312552": {
+          "id": 7312552,
+          "title": "School",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312581": {
+          "id": 7312581,
+          "title": "Alcohol",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312571": {
+          "id": 7312571,
+          "title": "Motor",
+          "transaction_count": 1,
+          "is_transfer": false
+        }
+      },
+      "deletion_candidates": [
+        {
+          "id": 7312266,
+          "title": "Bills",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7280197,
+          "title": "Online Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312587,
+          "title": "Transfer",
+          "transaction_count": 0,
+          "mapped_to": "Transfer"
+        },
+        {
+          "id": 7312590,
+          "title": "Transport",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 7794538,
+          "title": "Clothing/Shoes",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 7858322,
+          "title": "Refunds/Adjustments",
+          "transaction_count": 0,
+          "mapped_to": "Transfer"
+        },
+        {
+          "id": 7871181,
+          "title": "Healthcare/Medical",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7896863,
+          "title": "Home Maintenance",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 10447596,
+          "title": "Shopping",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 10447599,
+          "title": "Provider Fee",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11049847,
+          "title": "Bank Fees",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11049943,
+          "title": "Fuel",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 11049949,
+          "title": "Alcohol & Bars",
+          "transaction_count": 0,
+          "mapped_to": "Dining"
+        },
+        {
+          "id": 11110102,
+          "title": "Professional Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11125216,
+          "title": "Government Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 11176996,
+          "title": "Automotive",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 11193520,
+          "title": "Computing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 11262367,
+          "title": "Housing",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 11421853,
+          "title": "Cash Withdrawal",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 11721802,
+          "title": "Postage",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 12122497,
+          "title": "Jewellery",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 13340188,
+          "title": "Child Care",
+          "transaction_count": 0,
+          "mapped_to": "Education"
+        },
+        {
+          "id": 17005819,
+          "title": "Business Miscellaneous",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17291206,
+          "title": "Printing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17310994,
+          "title": "Electronics",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17316631,
+          "title": "Healthcare / Medical",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17323252,
+          "title": "Gasoline/Fuel",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 17328958,
+          "title": "Rentals",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 17343292,
+          "title": "Phone",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17417035,
+          "title": "Charitable Giving",
+          "transaction_count": 0,
+          "mapped_to": "Giving"
+        },
+        {
+          "id": 17492305,
+          "title": "Office Supplies",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17518609,
+          "title": "Utilities",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 17555794,
+          "title": "Personal Care",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 17571725,
+          "title": "Automotive Expenses",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 17594012,
+          "title": "Clothing",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 17687411,
+          "title": "Rent",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        },
+        {
+          "id": 17883938,
+          "title": "Child/Dependent Expenses",
+          "transaction_count": 0,
+          "mapped_to": "Education"
+        },
+        {
+          "id": 17887484,
+          "title": "Taxes",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19584417,
+          "title": "Home Improvement",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 19584420,
+          "title": "Telephone Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584423,
+          "title": "Dues and Subscriptions",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584426,
+          "title": "Pets/Pet Care",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 19584429,
+          "title": "Cable/Satellite Services",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 19584432,
+          "title": "Securities Trades",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19584435,
+          "title": "Retirement Contributions",
+          "transaction_count": 0,
+          "mapped_to": "Income"
+        },
+        {
+          "id": 19965585,
+          "title": "Hobbies",
+          "transaction_count": 0,
+          "mapped_to": "Shopping"
+        },
+        {
+          "id": 20895553,
+          "title": "Postage and Shipping",
+          "transaction_count": 0,
+          "mapped_to": "Household"
+        },
+        {
+          "id": 24261500,
+          "title": "Power",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 24899097,
+          "title": "Loan Repayment",
+          "transaction_count": 0,
+          "mapped_to": "Mortgage"
+        }
+      ],
+      "protected_categories": [
+        {
+          "id": 24918120,
+          "title": "_Transfer",
+          "reason": "underscore_prefix",
+          "transaction_count": 2195
+        },
+        {
+          "id": 24918504,
+          "title": "_Dining",
+          "reason": "underscore_prefix",
+          "transaction_count": 4024
+        },
+        {
+          "id": 24924387,
+          "title": "_Income",
+          "reason": "underscore_prefix",
+          "transaction_count": 492
+        },
+        {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "reason": "underscore_prefix",
+          "transaction_count": 209
+        },
+        {
+          "id": 24924558,
+          "title": "_Bills",
+          "reason": "underscore_prefix",
+          "transaction_count": 1325
+        },
+        {
+          "id": 24924573,
+          "title": "_Education",
+          "reason": "underscore_prefix",
+          "transaction_count": 235
+        },
+        {
+          "id": 24924576,
+          "title": "_Groceries",
+          "reason": "underscore_prefix",
+          "transaction_count": 1428
+        },
+        {
+          "id": 24924579,
+          "title": "_Transport",
+          "reason": "underscore_prefix",
+          "transaction_count": 1670
+        },
+        {
+          "id": 24924582,
+          "title": "_Giving",
+          "reason": "underscore_prefix",
+          "transaction_count": 375
+        },
+        {
+          "id": 24924585,
+          "title": "_Household",
+          "reason": "underscore_prefix",
+          "transaction_count": 1019
+        },
+        {
+          "id": 24924594,
+          "title": "_Shopping",
+          "reason": "underscore_prefix",
+          "transaction_count": 787
+        },
+        {
+          "id": 24924627,
+          "title": "_Holidays",
+          "reason": "underscore_prefix",
+          "transaction_count": 118
+        }
+      ],
+      "deletions_performed": 49,
+      "deletion_errors": [],
+      "dry_run": false
+    },
+    {
+      "timestamp": "2025-08-04T13:22:03.786539",
+      "total_transactions_analyzed": 14146,
+      "categories_in_use": 60,
+      "category_usage": {
+        "7312274": {
+          "id": 7312274,
+          "title": "Water",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7314701": {
+          "id": 7314701,
+          "title": "Tax",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312273": {
+          "id": 7312273,
+          "title": "Rates",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312272": {
+          "id": 7312272,
+          "title": "Mobile",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312271": {
+          "id": 7312271,
+          "title": "Media",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312270": {
+          "id": 7312270,
+          "title": "Internet",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312269": {
+          "id": 7312269,
+          "title": "Gas",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312268": {
+          "id": 7312268,
+          "title": "Electricity",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312544": {
+          "id": 7312544,
+          "title": "Eating out",
+          "transaction_count": 53,
+          "is_transfer": false
+        },
+        "7312549": {
+          "id": 7312549,
+          "title": "Education",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312554": {
+          "id": 7312554,
+          "title": "Giving",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7280188": {
+          "id": 7280188,
+          "title": "Groceries",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7312560": {
+          "id": 7312560,
+          "title": "Household",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312568": {
+          "id": 7312568,
+          "title": "Income",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7280166": {
+          "id": 7280166,
+          "title": "Insurance",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312572": {
+          "id": 7312572,
+          "title": "Medical",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7312577": {
+          "id": 7312577,
+          "title": "Mortgage",
+          "transaction_count": 10,
+          "is_transfer": false
+        },
+        "7312580": {
+          "id": 7312580,
+          "title": "Recreation",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280165": {
+          "id": 7280165,
+          "title": "Service Charges/Fees",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312588": {
+          "id": 7312588,
+          "title": "Loan payments",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312589": {
+          "id": 7312589,
+          "title": "Inter-account",
+          "transaction_count": 37,
+          "is_transfer": true
+        },
+        "7280182": {
+          "id": 7280182,
+          "title": "Credit Card Payments",
+          "transaction_count": 3,
+          "is_transfer": true
+        },
+        "7312596": {
+          "id": 7312596,
+          "title": "Tolls",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7707848": {
+          "id": 7707848,
+          "title": "Taxi",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312598": {
+          "id": 7312598,
+          "title": "Servicing",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312597": {
+          "id": 7312597,
+          "title": "Registration",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312595": {
+          "id": 7312595,
+          "title": "Public transport",
+          "transaction_count": 15,
+          "is_transfer": false
+        },
+        "7312594": {
+          "id": 7312594,
+          "title": "Petrol",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312593": {
+          "id": 7312593,
+          "title": "Parking",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312592": {
+          "id": 7312592,
+          "title": "Flights",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7312591": {
+          "id": 7312591,
+          "title": "Fines",
+          "transaction_count": 0,
+          "is_transfer": false
+        },
+        "7949656": {
+          "id": 7949656,
+          "title": "Transfers",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "17298658": {
+          "id": 17298658,
+          "title": "Restaurants/Dining",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "17298661": {
+          "id": 17298661,
+          "title": "Travel",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "24918120": {
+          "id": 24918120,
+          "title": "_Transfer",
+          "transaction_count": 2195,
+          "is_transfer": false
+        },
+        "24918504": {
+          "id": 24918504,
+          "title": "_Dining",
+          "transaction_count": 4024,
+          "is_transfer": false
+        },
+        "24924387": {
+          "id": 24924387,
+          "title": "_Income",
+          "transaction_count": 492,
+          "is_transfer": false
+        },
+        "24924438": {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "transaction_count": 209,
+          "is_transfer": false
+        },
+        "24924558": {
+          "id": 24924558,
+          "title": "_Bills",
+          "transaction_count": 1325,
+          "is_transfer": false
+        },
+        "24924573": {
+          "id": 24924573,
+          "title": "_Education",
+          "transaction_count": 235,
+          "is_transfer": false
+        },
+        "24924576": {
+          "id": 24924576,
+          "title": "_Groceries",
+          "transaction_count": 1428,
+          "is_transfer": false
+        },
+        "24924579": {
+          "id": 24924579,
+          "title": "_Transport",
+          "transaction_count": 1670,
+          "is_transfer": false
+        },
+        "24924582": {
+          "id": 24924582,
+          "title": "_Giving",
+          "transaction_count": 375,
+          "is_transfer": false
+        },
+        "24924585": {
+          "id": 24924585,
+          "title": "_Household",
+          "transaction_count": 1019,
+          "is_transfer": false
+        },
+        "24924594": {
+          "id": 24924594,
+          "title": "_Shopping",
+          "transaction_count": 787,
+          "is_transfer": false
+        },
+        "24924627": {
+          "id": 24924627,
+          "title": "_Holidays",
+          "transaction_count": 118,
+          "is_transfer": false
+        },
+        "7314164": {
+          "id": 7314164,
+          "title": "Entertainment",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312545": {
+          "id": 7312545,
+          "title": "Bubble tea",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312556": {
+          "id": 7312556,
+          "title": "Missionary",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312558": {
+          "id": 7312558,
+          "title": "Asian stores",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312547": {
+          "id": 7312547,
+          "title": "Fast food",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7314704": {
+          "id": 7314704,
+          "title": "Salary",
+          "transaction_count": 6,
+          "is_transfer": false
+        },
+        "7312562": {
+          "id": 7312562,
+          "title": "Self-care",
+          "transaction_count": 7,
+          "is_transfer": false
+        },
+        "7312600": {
+          "id": 7312600,
+          "title": "Games",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312569": {
+          "id": 7312569,
+          "title": "Health",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312546": {
+          "id": 7312546,
+          "title": "Coffee",
+          "transaction_count": 11,
+          "is_transfer": false
+        },
+        "7312548": {
+          "id": 7312548,
+          "title": "Paying for others",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7312579": {
+          "id": 7312579,
+          "title": "Interest",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7312555": {
+          "id": 7312555,
+          "title": "Church",
+          "transaction_count": 4,
+          "is_transfer": false
+        },
+        "7314702": {
+          "id": 7314702,
+          "title": "Investment",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7314705": {
+          "id": 7314705,
+          "title": "Superannuation",
+          "transaction_count": 5,
+          "is_transfer": false
+        },
+        "7312550": {
+          "id": 7312550,
+          "title": "Childcare",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312575": {
+          "id": 7312575,
+          "title": "NDIS",
+          "transaction_count": 3,
+          "is_transfer": false
+        },
+        "7280222": {
+          "id": 7280222,
+          "title": "Gifts",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312584": {
+          "id": 7312584,
+          "title": "Holidays",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312553": {
+          "id": 7312553,
+          "title": "Tutoring",
+          "transaction_count": 2,
+          "is_transfer": false
+        },
+        "7312552": {
+          "id": 7312552,
+          "title": "School",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312581": {
+          "id": 7312581,
+          "title": "Alcohol",
+          "transaction_count": 1,
+          "is_transfer": false
+        },
+        "7312571": {
+          "id": 7312571,
+          "title": "Motor",
+          "transaction_count": 1,
+          "is_transfer": false
+        }
+      },
+      "deletion_candidates": [
+        {
+          "id": 7312274,
+          "title": "Water",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312273,
+          "title": "Rates",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312269,
+          "title": "Gas",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312268,
+          "title": "Electricity",
+          "transaction_count": 0,
+          "mapped_to": "Bills"
+        },
+        {
+          "id": 7312596,
+          "title": "Tolls",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 7312598,
+          "title": "Servicing",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 7312597,
+          "title": "Registration",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        },
+        {
+          "id": 7312592,
+          "title": "Flights",
+          "transaction_count": 0,
+          "mapped_to": "Holidays"
+        },
+        {
+          "id": 7312591,
+          "title": "Fines",
+          "transaction_count": 0,
+          "mapped_to": "Transport"
+        }
+      ],
+      "protected_categories": [
+        {
+          "id": 24918120,
+          "title": "_Transfer",
+          "reason": "underscore_prefix",
+          "transaction_count": 2195
+        },
+        {
+          "id": 24918504,
+          "title": "_Dining",
+          "reason": "underscore_prefix",
+          "transaction_count": 4024
+        },
+        {
+          "id": 24924387,
+          "title": "_Income",
+          "reason": "underscore_prefix",
+          "transaction_count": 492
+        },
+        {
+          "id": 24924438,
+          "title": "_Mortgage",
+          "reason": "underscore_prefix",
+          "transaction_count": 209
+        },
+        {
+          "id": 24924558,
+          "title": "_Bills",
+          "reason": "underscore_prefix",
+          "transaction_count": 1325
+        },
+        {
+          "id": 24924573,
+          "title": "_Education",
+          "reason": "underscore_prefix",
+          "transaction_count": 235
+        },
+        {
+          "id": 24924576,
+          "title": "_Groceries",
+          "reason": "underscore_prefix",
+          "transaction_count": 1428
+        },
+        {
+          "id": 24924579,
+          "title": "_Transport",
+          "reason": "underscore_prefix",
+          "transaction_count": 1670
+        },
+        {
+          "id": 24924582,
+          "title": "_Giving",
+          "reason": "underscore_prefix",
+          "transaction_count": 375
+        },
+        {
+          "id": 24924585,
+          "title": "_Household",
+          "reason": "underscore_prefix",
+          "transaction_count": 1019
+        },
+        {
+          "id": 24924594,
+          "title": "_Shopping",
+          "reason": "underscore_prefix",
+          "transaction_count": 787
+        },
+        {
+          "id": 24924627,
+          "title": "_Holidays",
+          "reason": "underscore_prefix",
+          "transaction_count": 118
+        }
+      ],
+      "deletions_performed": 9,
+      "deletion_errors": [],
+      "dry_run": false
+    }
+  ],
+  "deleted_categories": [
+    {
+      "id": 7312266,
+      "title": "Bills",
+      "deleted_at": "2025-08-04T11:59:00.843467",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7280197,
+      "title": "Online Services",
+      "deleted_at": "2025-08-04T11:59:01.792197",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7312587,
+      "title": "Transfer",
+      "deleted_at": "2025-08-04T11:59:03.320224",
+      "mapped_to": "Transfer"
+    },
+    {
+      "id": 7312590,
+      "title": "Transport",
+      "deleted_at": "2025-08-04T11:59:04.803665",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 7794538,
+      "title": "Clothing/Shoes",
+      "deleted_at": "2025-08-04T11:59:05.684581",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 7858322,
+      "title": "Refunds/Adjustments",
+      "deleted_at": "2025-08-04T11:59:06.568424",
+      "mapped_to": "Transfer"
+    },
+    {
+      "id": 7871181,
+      "title": "Healthcare/Medical",
+      "deleted_at": "2025-08-04T11:59:07.510449",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7896863,
+      "title": "Home Maintenance",
+      "deleted_at": "2025-08-04T11:59:08.386255",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 10447596,
+      "title": "Shopping",
+      "deleted_at": "2025-08-04T11:59:09.216486",
+      "mapped_to": "Shopping"
+    },
+    {
+      "id": 10447599,
+      "title": "Provider Fee",
+      "deleted_at": "2025-08-04T11:59:10.161273",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 11049847,
+      "title": "Bank Fees",
+      "deleted_at": "2025-08-04T11:59:11.008434",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 11049943,
+      "title": "Fuel",
+      "deleted_at": "2025-08-04T11:59:11.854766",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 11049949,
+      "title": "Alcohol & Bars",
+      "deleted_at": "2025-08-04T11:59:12.793357",
+      "mapped_to": "Dining"
+    },
+    {
+      "id": 11110102,
+      "title": "Professional Services",
+      "deleted_at": "2025-08-04T11:59:13.648387",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 11125216,
+      "title": "Government Services",
+      "deleted_at": "2025-08-04T11:59:14.666767",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 11176996,
+      "title": "Automotive",
+      "deleted_at": "2025-08-04T11:59:15.622517",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 11193520,
+      "title": "Computing",
+      "deleted_at": "2025-08-04T11:59:16.507083",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 11262367,
+      "title": "Housing",
+      "deleted_at": "2025-08-04T11:59:17.431671",
+      "mapped_to": "Mortgage"
+    },
+    {
+      "id": 11421853,
+      "title": "Cash Withdrawal",
+      "deleted_at": "2025-08-04T11:59:18.294754",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 11721802,
+      "title": "Postage",
+      "deleted_at": "2025-08-04T11:59:19.153199",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 12122497,
+      "title": "Jewellery",
+      "deleted_at": "2025-08-04T11:59:20.026477",
+      "mapped_to": "Shopping"
+    },
+    {
+      "id": 13340188,
+      "title": "Child Care",
+      "deleted_at": "2025-08-04T11:59:21.210132",
+      "mapped_to": "Education"
+    },
+    {
+      "id": 17005819,
+      "title": "Business Miscellaneous",
+      "deleted_at": "2025-08-04T11:59:22.050813",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 17291206,
+      "title": "Printing",
+      "deleted_at": "2025-08-04T11:59:23.574019",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 17310994,
+      "title": "Electronics",
+      "deleted_at": "2025-08-04T11:59:24.598145",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 17316631,
+      "title": "Healthcare / Medical",
+      "deleted_at": "2025-08-04T11:59:25.450306",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 17323252,
+      "title": "Gasoline/Fuel",
+      "deleted_at": "2025-08-04T11:59:26.958061",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 17328958,
+      "title": "Rentals",
+      "deleted_at": "2025-08-04T11:59:27.875097",
+      "mapped_to": "Mortgage"
+    },
+    {
+      "id": 17343292,
+      "title": "Phone",
+      "deleted_at": "2025-08-04T11:59:28.795338",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 17417035,
+      "title": "Charitable Giving",
+      "deleted_at": "2025-08-04T11:59:29.819648",
+      "mapped_to": "Giving"
+    },
+    {
+      "id": 17492305,
+      "title": "Office Supplies",
+      "deleted_at": "2025-08-04T11:59:30.843025",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 17518609,
+      "title": "Utilities",
+      "deleted_at": "2025-08-04T11:59:31.768130",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 17555794,
+      "title": "Personal Care",
+      "deleted_at": "2025-08-04T11:59:32.611512",
+      "mapped_to": "Shopping"
+    },
+    {
+      "id": 17571725,
+      "title": "Automotive Expenses",
+      "deleted_at": "2025-08-04T11:59:33.466777",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 17594012,
+      "title": "Clothing",
+      "deleted_at": "2025-08-04T11:59:34.304599",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 17687411,
+      "title": "Rent",
+      "deleted_at": "2025-08-04T11:59:35.182535",
+      "mapped_to": "Mortgage"
+    },
+    {
+      "id": 17883938,
+      "title": "Child/Dependent Expenses",
+      "deleted_at": "2025-08-04T11:59:36.068282",
+      "mapped_to": "Education"
+    },
+    {
+      "id": 17887484,
+      "title": "Taxes",
+      "deleted_at": "2025-08-04T11:59:37.833148",
+      "mapped_to": "Income"
+    },
+    {
+      "id": 19584417,
+      "title": "Home Improvement",
+      "deleted_at": "2025-08-04T11:59:38.718349",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 19584420,
+      "title": "Telephone Services",
+      "deleted_at": "2025-08-04T11:59:39.579348",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 19584423,
+      "title": "Dues and Subscriptions",
+      "deleted_at": "2025-08-04T11:59:40.430854",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 19584426,
+      "title": "Pets/Pet Care",
+      "deleted_at": "2025-08-04T11:59:41.310803",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 19584429,
+      "title": "Cable/Satellite Services",
+      "deleted_at": "2025-08-04T11:59:42.159725",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 19584432,
+      "title": "Securities Trades",
+      "deleted_at": "2025-08-04T11:59:43.027234",
+      "mapped_to": "Income"
+    },
+    {
+      "id": 19584435,
+      "title": "Retirement Contributions",
+      "deleted_at": "2025-08-04T11:59:43.991735",
+      "mapped_to": "Income"
+    },
+    {
+      "id": 19965585,
+      "title": "Hobbies",
+      "deleted_at": "2025-08-04T11:59:45.007338",
+      "mapped_to": "Shopping"
+    },
+    {
+      "id": 20895553,
+      "title": "Postage and Shipping",
+      "deleted_at": "2025-08-04T11:59:45.848850",
+      "mapped_to": "Household"
+    },
+    {
+      "id": 24261500,
+      "title": "Power",
+      "deleted_at": "2025-08-04T11:59:46.698877",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 24899097,
+      "title": "Loan Repayment",
+      "deleted_at": "2025-08-04T11:59:47.601057",
+      "mapped_to": "Mortgage"
+    },
+    {
+      "id": 7312274,
+      "title": "Water",
+      "deleted_at": "2025-08-04T13:22:04.712170",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7312273,
+      "title": "Rates",
+      "deleted_at": "2025-08-04T13:22:05.604357",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7312269,
+      "title": "Gas",
+      "deleted_at": "2025-08-04T13:22:06.594477",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7312268,
+      "title": "Electricity",
+      "deleted_at": "2025-08-04T13:22:07.999020",
+      "mapped_to": "Bills"
+    },
+    {
+      "id": 7312596,
+      "title": "Tolls",
+      "deleted_at": "2025-08-04T13:22:08.926498",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 7312598,
+      "title": "Servicing",
+      "deleted_at": "2025-08-04T13:22:10.284101",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 7312597,
+      "title": "Registration",
+      "deleted_at": "2025-08-04T13:22:11.170832",
+      "mapped_to": "Transport"
+    },
+    {
+      "id": 7312592,
+      "title": "Flights",
+      "deleted_at": "2025-08-04T13:22:12.028835",
+      "mapped_to": "Holidays"
+    },
+    {
+      "id": 7312591,
+      "title": "Fines",
+      "deleted_at": "2025-08-04T13:22:12.904711",
+      "mapped_to": "Transport"
+    }
+  ],
+  "last_updated": "2025-08-04T13:22:13.408739"
+}
